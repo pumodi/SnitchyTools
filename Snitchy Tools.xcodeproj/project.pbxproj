@@ -19,6 +19,8 @@
 		41DC98A818459A2B00D6E13C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988418459A2B00D6E13C /* Cocoa.framework */; };
 		41DC98B018459A2B00D6E13C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98AE18459A2B00D6E13C /* InfoPlist.strings */; };
 		41DC98B218459A2B00D6E13C /* Snitchy_ToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */; };
+		41DC98BE18459B9D00D6E13C /* Snitchkeeper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */; };
+		41DC98C018459CC400D6E13C /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98BF18459CC400D6E13C /* lock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		41DC98AD18459A2B00D6E13C /* Snitchy ToolsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snitchy ToolsTests-Info.plist"; sourceTree = "<group>"; };
 		41DC98AF18459A2B00D6E13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Snitchy_ToolsTests.m; sourceTree = "<group>"; };
+		41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snitchkeeper.xib; sourceTree = "<group>"; };
+		41DC98BF18459CC400D6E13C /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				41DC989718459A2B00D6E13C /* Document.m */,
 				41DC989918459A2B00D6E13C /* Document.xib */,
 				41DC989C18459A2B00D6E13C /* MainMenu.xib */,
+				41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */,
 				41DC989F18459A2B00D6E13C /* Images.xcassets */,
 				41DC988B18459A2B00D6E13C /* Supporting Files */,
 			);
@@ -130,6 +135,7 @@
 		41DC988B18459A2B00D6E13C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41DC98BF18459CC400D6E13C /* lock.png */,
 				41DC988C18459A2B00D6E13C /* Snitchy Tools-Info.plist */,
 				41DC988D18459A2B00D6E13C /* InfoPlist.strings */,
 				41DC989018459A2B00D6E13C /* main.m */,
@@ -204,6 +210,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Spacebooke Games";
 				TargetAttributes = {
+					41DC988018459A2B00D6E13C = {
+						DevelopmentTeam = T5VJ6ZM7GN;
+					};
 					41DC98A418459A2B00D6E13C = {
 						TestTargetID = 41DC988018459A2B00D6E13C;
 					};
@@ -235,9 +244,11 @@
 			files = (
 				41DC989B18459A2B00D6E13C /* Document.xib in Resources */,
 				41DC98A018459A2B00D6E13C /* Images.xcassets in Resources */,
+				41DC98BE18459B9D00D6E13C /* Snitchkeeper.xib in Resources */,
 				41DC988F18459A2B00D6E13C /* InfoPlist.strings in Resources */,
 				41DC989518459A2B00D6E13C /* Credits.rtf in Resources */,
 				41DC989E18459A2B00D6E13C /* MainMenu.xib in Resources */,
+				41DC98C018459CC400D6E13C /* lock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,10 +406,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snitchy Tools/Snitchy Tools-Prefix.pch";
 				INFOPLIST_FILE = "Snitchy Tools/Snitchy Tools-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -408,10 +421,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snitchy Tools/Snitchy Tools-Prefix.pch";
 				INFOPLIST_FILE = "Snitchy Tools/Snitchy Tools-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
