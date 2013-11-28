@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351444C918469D1800EBFC43 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 351444C818469D1800EBFC43 /* MainMenu.m */; };
+		351444CA18469E3E00EBFC43 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988718459A2B00D6E13C /* AppKit.framework */; };
+		351444CB18469E4600EBFC43 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988818459A2B00D6E13C /* CoreData.framework */; };
+		3548C3B71846962E0090FF4F /* Snitchkeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3548C3B61846962E0090FF4F /* Snitchkeeper.m */; };
 		41DC988518459A2B00D6E13C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988418459A2B00D6E13C /* Cocoa.framework */; };
 		41DC988F18459A2B00D6E13C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41DC988D18459A2B00D6E13C /* InfoPlist.strings */; };
 		41DC989118459A2B00D6E13C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC989018459A2B00D6E13C /* main.m */; };
 		41DC989518459A2B00D6E13C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 41DC989318459A2B00D6E13C /* Credits.rtf */; };
-		41DC989818459A2B00D6E13C /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC989718459A2B00D6E13C /* Document.m */; };
-		41DC989B18459A2B00D6E13C /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC989918459A2B00D6E13C /* Document.xib */; };
 		41DC989E18459A2B00D6E13C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC989C18459A2B00D6E13C /* MainMenu.xib */; };
 		41DC98A018459A2B00D6E13C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DC989F18459A2B00D6E13C /* Images.xcassets */; };
 		41DC98A718459A2B00D6E13C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC98A618459A2B00D6E13C /* XCTest.framework */; };
 		41DC98A818459A2B00D6E13C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988418459A2B00D6E13C /* Cocoa.framework */; };
 		41DC98B018459A2B00D6E13C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98AE18459A2B00D6E13C /* InfoPlist.strings */; };
 		41DC98B218459A2B00D6E13C /* Snitchy_ToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */; };
-		41DC98BE18459B9D00D6E13C /* Snitchkeeper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */; };
 		41DC98C018459CC400D6E13C /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98BF18459CC400D6E13C /* lock.png */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		351444C718469D1800EBFC43 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenu.h; path = ../MainMenu.h; sourceTree = "<group>"; };
+		351444C818469D1800EBFC43 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenu.m; path = ../MainMenu.m; sourceTree = "<group>"; };
+		3548C3B51846962E0090FF4F /* Snitchkeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snitchkeeper.h; sourceTree = "<group>"; };
+		3548C3B61846962E0090FF4F /* Snitchkeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snitchkeeper.m; sourceTree = "<group>"; };
+		35A4AB3B1846A25800CE2C16 /* Snitchy Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Snitchy Tools.entitlements"; sourceTree = "<group>"; };
 		41DC988118459A2B00D6E13C /* Snitchy Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snitchy Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DC988418459A2B00D6E13C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		41DC988718459A2B00D6E13C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -44,9 +50,6 @@
 		41DC989018459A2B00D6E13C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		41DC989218459A2B00D6E13C /* Snitchy Tools-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snitchy Tools-Prefix.pch"; sourceTree = "<group>"; };
 		41DC989418459A2B00D6E13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		41DC989618459A2B00D6E13C /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		41DC989718459A2B00D6E13C /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
-		41DC989A18459A2B00D6E13C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		41DC989D18459A2B00D6E13C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		41DC989F18459A2B00D6E13C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		41DC98A518459A2B00D6E13C /* Snitchy ToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Snitchy ToolsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +57,6 @@
 		41DC98AD18459A2B00D6E13C /* Snitchy ToolsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snitchy ToolsTests-Info.plist"; sourceTree = "<group>"; };
 		41DC98AF18459A2B00D6E13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Snitchy_ToolsTests.m; sourceTree = "<group>"; };
-		41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snitchkeeper.xib; sourceTree = "<group>"; };
 		41DC98BF18459CC400D6E13C /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351444CB18469E4600EBFC43 /* CoreData.framework in Frameworks */,
+				351444CA18469E3E00EBFC43 /* AppKit.framework in Frameworks */,
 				41DC988518459A2B00D6E13C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,11 +125,12 @@
 		41DC988A18459A2B00D6E13C /* Snitchy Tools */ = {
 			isa = PBXGroup;
 			children = (
-				41DC989618459A2B00D6E13C /* Document.h */,
-				41DC989718459A2B00D6E13C /* Document.m */,
-				41DC989918459A2B00D6E13C /* Document.xib */,
+				35A4AB3B1846A25800CE2C16 /* Snitchy Tools.entitlements */,
+				351444C718469D1800EBFC43 /* MainMenu.h */,
+				351444C818469D1800EBFC43 /* MainMenu.m */,
+				3548C3B51846962E0090FF4F /* Snitchkeeper.h */,
+				3548C3B61846962E0090FF4F /* Snitchkeeper.m */,
 				41DC989C18459A2B00D6E13C /* MainMenu.xib */,
-				41DC98BD18459B9D00D6E13C /* Snitchkeeper.xib */,
 				41DC989F18459A2B00D6E13C /* Images.xcassets */,
 				41DC988B18459A2B00D6E13C /* Supporting Files */,
 			);
@@ -212,6 +217,14 @@
 				TargetAttributes = {
 					41DC988018459A2B00D6E13C = {
 						DevelopmentTeam = T5VJ6ZM7GN;
+						SystemCapabilities = {
+							com.apple.Mac = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					41DC98A418459A2B00D6E13C = {
 						TestTargetID = 41DC988018459A2B00D6E13C;
@@ -242,9 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41DC989B18459A2B00D6E13C /* Document.xib in Resources */,
 				41DC98A018459A2B00D6E13C /* Images.xcassets in Resources */,
-				41DC98BE18459B9D00D6E13C /* Snitchkeeper.xib in Resources */,
 				41DC988F18459A2B00D6E13C /* InfoPlist.strings in Resources */,
 				41DC989518459A2B00D6E13C /* Credits.rtf in Resources */,
 				41DC989E18459A2B00D6E13C /* MainMenu.xib in Resources */,
@@ -267,8 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41DC989818459A2B00D6E13C /* Document.m in Sources */,
+				3548C3B71846962E0090FF4F /* Snitchkeeper.m in Sources */,
 				41DC989118459A2B00D6E13C /* main.m in Sources */,
+				351444C918469D1800EBFC43 /* MainMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,14 +317,6 @@
 				41DC989418459A2B00D6E13C /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		41DC989918459A2B00D6E13C /* Document.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41DC989A18459A2B00D6E13C /* Base */,
-			);
-			name = Document.xib;
 			sourceTree = "<group>";
 		};
 		41DC989C18459A2B00D6E13C /* MainMenu.xib */ = {
@@ -406,13 +410,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_ENTITLEMENTS = "Snitchy Tools/Snitchy Tools.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snitchy Tools/Snitchy Tools-Prefix.pch";
 				INFOPLIST_FILE = "Snitchy Tools/Snitchy Tools-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -421,13 +427,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_ENTITLEMENTS = "Snitchy Tools/Snitchy Tools.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snitchy Tools/Snitchy Tools-Prefix.pch";
 				INFOPLIST_FILE = "Snitchy Tools/Snitchy Tools-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -491,6 +499,7 @@
 				41DC98B718459A2B00D6E13C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41DC98B818459A2B00D6E13C /* Build configuration list for PBXNativeTarget "Snitchy ToolsTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +508,7 @@
 				41DC98BA18459A2B00D6E13C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

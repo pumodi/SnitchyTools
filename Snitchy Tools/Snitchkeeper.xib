@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A524d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
+        <deployment defaultVersion="1090" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -9,6 +9,58 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <customObject id="371" customClass="NSFontManager"/>
+        <customObject id="ZAG-gs-4sM" customClass="Snitchkeeper">
+            <connections>
+                <outlet property="addGoalT1" destination="SHF-Pb-3UW" id="bUb-P5-6ic"/>
+                <outlet property="addGoalT1OT" destination="kGq-Y7-JK1" id="AXm-La-lev"/>
+                <outlet property="addGoalT1SD" destination="7Dq-kp-ZHF" id="WAm-9Y-q6h"/>
+                <outlet property="addGoalT2" destination="bS1-8v-taO" id="61n-Ah-i2z"/>
+                <outlet property="addGoalT2OT" destination="WFV-HR-xtb" id="OSw-1w-Jkr"/>
+                <outlet property="addGoalT2SD" destination="tVF-ye-eqE" id="5KB-PZ-3PC"/>
+                <outlet property="endGame" destination="17S-3L-lKy" id="MRq-ly-20A"/>
+                <outlet property="endGameOT" destination="cGd-lh-N4n" id="hzm-Ot-pMa"/>
+                <outlet property="endGameSD" destination="55w-H3-V8N" id="hgQ-5k-dV5"/>
+                <outlet property="help" destination="ulg-Bu-NuO" id="y8m-AQ-fCM"/>
+                <outlet property="otClock" destination="ME4-U9-A8e" id="e67-vE-eWp"/>
+                <outlet property="penalty" destination="0lb-08-HvM" id="wRc-5Y-SEW"/>
+                <outlet property="playClock" destination="0jx-o4-VDm" id="7sN-ss-kvR"/>
+                <outlet property="remGoalT1" destination="sAJ-UP-vSz" id="fp9-5h-lsv"/>
+                <outlet property="remGoalT1OT" destination="LZ5-JM-ZUK" id="xOH-Qb-TM0"/>
+                <outlet property="remGoalT1SD" destination="bm5-s9-zkI" id="CeC-cz-mD2"/>
+                <outlet property="remGoalT2" destination="9DR-V2-Xb0" id="ajR-MR-QCm"/>
+                <outlet property="remGoalT2OT" destination="fPU-Q4-gg6" id="ctZ-m7-aar"/>
+                <outlet property="remGoalT2SD" destination="WLW-DC-KGT" id="Qnk-Wk-Yiq"/>
+                <outlet property="sdClock" destination="nmZ-wF-YhH" id="T4K-EA-nqp"/>
+                <outlet property="seekerFloor" destination="gsN-TP-TQG" id="ck0-8X-hFo"/>
+                <outlet property="snitch" destination="uIk-QW-Nbz" id="wn2-ao-omG"/>
+                <outlet property="snitchCatchT1" destination="BEf-Lv-Z4X" id="suO-jV-Ufh"/>
+                <outlet property="snitchCatchT1OT" destination="bkf-Tt-Xka" id="0ax-YJ-YAc"/>
+                <outlet property="snitchCatchT1SD" destination="y0n-BL-mBL" id="m4P-e1-bdH"/>
+                <outlet property="snitchCatchT2" destination="Aw8-3P-lkx" id="Kcr-8A-C5v"/>
+                <outlet property="snitchCatchT2OT" destination="bmv-PR-CbV" id="4yO-ye-kaa"/>
+                <outlet property="snitchCatchT2SD" destination="LoS-ev-HZC" id="qWW-qG-suV"/>
+                <outlet property="snitchKeeper" destination="RuX-RC-nEW" id="0Wu-ss-8yw"/>
+                <outlet property="snitchPitch" destination="o5a-0L-uD3" id="e82-Az-UB7"/>
+                <outlet property="startGame" destination="D7P-Zd-mXg" id="iQJ-kI-VMR"/>
+                <outlet property="startGameOT" destination="NFn-8u-p27" id="uOc-oz-5cL"/>
+                <outlet property="startGameSD" destination="rp8-eZ-DoE" id="M5l-8o-gXK"/>
+                <outlet property="stopPlay" destination="vdd-ov-pNx" id="WwE-BL-4D1"/>
+                <outlet property="stopPlayInjury" destination="Mlq-wi-xrI" id="HL9-tN-cVL"/>
+                <outlet property="stopPlayInjuryOT" destination="pi9-x2-dnK" id="cKD-W2-01E"/>
+                <outlet property="stopPlayInjurySD" destination="lgt-s3-coT" id="fcS-nV-fCJ"/>
+                <outlet property="stopPlayOT" destination="sd8-Ky-EmK" id="l8p-xn-3UW"/>
+                <outlet property="stopPlaySD" destination="vco-x6-t4q" id="h9V-ch-DmV"/>
+                <outlet property="stopPlaySeekerContinue" destination="CKk-TI-Hqr" id="YVm-Id-5DC"/>
+                <outlet property="t1OTScore" destination="MK3-sN-08L" id="4wR-4R-fhw"/>
+                <outlet property="t1SDScore" destination="g8n-5u-7Y3" id="J6B-WU-hQG"/>
+                <outlet property="t1Score" destination="qtD-KF-vXj" id="Nlu-iG-rTT"/>
+                <outlet property="t2OTScore" destination="Cyn-Ae-qif" id="mRh-0F-1ca"/>
+                <outlet property="t2SDScore" destination="SUL-00-nJs" id="AWX-R0-CA3"/>
+                <outlet property="t2Score" destination="I75-hy-PUa" id="4A9-Ld-kIz"/>
+                <outlet property="teamOne" destination="TvY-iM-89P" id="dcS-vj-iMS"/>
+                <outlet property="teamTwo" destination="lz2-WK-A20" id="cel-U0-t0p"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="29">
             <items>
                 <menuItem title="Snitchkeeper" id="56">
@@ -645,20 +697,11 @@
                 </menuItem>
             </items>
         </menu>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fSZ-Fq-CwZ">
-            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="RTx-uQ-X6V">
-                <font key="font" metaFont="system"/>
-                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-        </textField>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="RuX-RC-nEW">
+        <window title="Snitchkeeper - T1 (00) v T2 (00)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="RuX-RC-nEW">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="1030" height="875"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="ysT-R9-ekT">
                 <rect key="frame" x="0.0" y="0.0" width="1030" height="875"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -676,7 +719,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dGd-MR-vDz" id="pVj-Yb-oSY">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="OMV-X9-sGG">
                                 <items>
                                     <menuItem title="Item 1" state="on" id="dGd-MR-vDz"/>
@@ -700,7 +743,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5S4-ba-DlT" id="Ytm-Nd-ijB">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="B4k-2G-Lxa">
                                 <items>
                                     <menuItem title="Item 1" state="on" id="5S4-ba-DlT"/>
@@ -733,7 +776,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="m5w-0f-KEd" id="l0g-A7-8aY">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="9K3-5E-JIB">
                                 <items>
                                     <menuItem title="Item 1" state="on" id="m5w-0f-KEd"/>
@@ -756,7 +799,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qrG-j9-nuG">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-ov-pNx">
@@ -764,7 +807,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gEr-AA-RFP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mlq-wi-xrI">
@@ -772,7 +815,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="esA-py-Gmt">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKk-TI-Hqr">
@@ -780,7 +823,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play (Continue Seeker Floor)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lbf-0N-JRo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17S-3L-lKy">
@@ -788,7 +831,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gmp-Ok-UaC">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Is-Ju-Vnt">
@@ -831,7 +874,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GLd-u7-hII">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sd8-Ky-EmK">
@@ -839,7 +882,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wnt-4W-Uwf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pi9-x2-dnK">
@@ -847,7 +890,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vpf-Wt-q0T">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-lh-N4n">
@@ -855,7 +898,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VXW-ij-BxF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="poX-CB-uvs">
@@ -872,7 +915,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kDj-D2-ARy">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vco-x6-t4q">
@@ -880,7 +923,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6lW-vf-5MD">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-s3-coT">
@@ -888,7 +931,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hrA-ki-9wa">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55w-H3-V8N">
@@ -896,7 +939,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sIe-xs-jwr">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Bu-NuO">
@@ -1193,7 +1236,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Snitch Returns to Pitch" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4OT-Ks-c8Z">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                     </button>
                 </subviews>
@@ -1203,7 +1246,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="136" y="163" width="544" height="691"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="jbx-ud-RqP">
                 <rect key="frame" x="0.0" y="0.0" width="544" height="691"/>
                 <autoresizingMask key="autoresizingMask"/>
