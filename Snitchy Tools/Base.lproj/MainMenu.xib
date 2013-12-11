@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A524d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1090" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -955,6 +955,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="5mv-6h-jJ7"/>
+                        </connections>
                     </button>
                     <button id="edK-4o-vZe">
                         <rect key="frame" x="182" y="642" width="157" height="64"/>
@@ -971,6 +974,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="eUs-IQ-uvH"/>
+                        </connections>
                     </button>
                     <button id="pha-E8-wdv">
                         <rect key="frame" x="811" y="642" width="157" height="64"/>
@@ -983,7 +989,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LST-VW-L5t">
                         <rect key="frame" x="490" y="749" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="SVL-81-G2p">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="SVL-81-G2p">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1001,7 +1007,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="odK-9T-Qht">
                         <rect key="frame" x="367" y="749" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="RMz-0G-efm">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="RMz-0G-efm">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1022,6 +1028,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="iNp-5r-RgU"/>
+                        </connections>
                     </button>
                     <button id="ZJp-Me-h60">
                         <rect key="frame" x="182" y="383" width="157" height="64"/>
@@ -1046,6 +1055,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="O9d-76-vNf"/>
+                        </connections>
                     </button>
                     <button id="JBF-FC-rp8">
                         <rect key="frame" x="811" y="383" width="157" height="64"/>
@@ -1124,6 +1136,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="WKZ-3H-qGV"/>
+                        </connections>
                     </button>
                     <button id="2q2-Cz-JNM">
                         <rect key="frame" x="182" y="169" width="157" height="64"/>
@@ -1148,6 +1163,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="ahT-sj-6If"/>
+                        </connections>
                     </button>
                     <button id="p4i-DO-etC">
                         <rect key="frame" x="811" y="169" width="157" height="64"/>

@@ -57,7 +57,11 @@
     IBOutlet NSTextField *t2OTScore;
     IBOutlet NSTextField *t1SDScore;
     IBOutlet NSTextField *t2SDScore;
+    NSTimer *timer;
 }
 
+@property (nonatomic, retain) NSTextField *playClock;
+-(void)updateTimeKeeper:(NSTimer *)theTimer;
+-(void)timeKeeper;
 
 @end

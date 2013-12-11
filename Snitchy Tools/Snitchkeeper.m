@@ -10,12 +10,16 @@
 #import "NSTimerController.h"
 
 @implementation Snitchkeeper
+@synthesize playClock;
 
 BOOL started = TRUE;
 BOOL stopped = FALSE;
 BOOL snitchPitchTrue = FALSE;
+int currentTime = 0;
+int hours, minutes, seconds = 0;
 
--(void)scoreManager:(id)sender {
+
+-(IBAction)scoreManager:(id)sender {
     int t1ScoreCurrent = 0;
     int t2ScoreCurrent = 0;
     int t1ScoreOTCurrent = 0;
@@ -47,6 +51,19 @@ BOOL snitchPitchTrue = FALSE;
         t2ScoreSDCurrent = t2ScoreSDCurrent + 10;
         [t2SDScore insertText:[NSString stringWithFormat:@"%d", t2ScoreSDCurrent]];
     }
+}
+
+- (void)updateTimeKeeper:(NSTimer *)theTimer {
+    currentTime ++;
+    hours = currentTime / 3600;
+    minutes = (currentTime % 3600) / 60;
+    seconds = (currentTime %3600) % 60;
+    playClock.stringValue = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+}
+
+-(void)timeKeeper {
+    currentTime = hours = minutes = seconds = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimeKeeper:) userInfo:nil repeats:YES];
 }
 
 - (IBAction)onStartPressed:(id)sender {
