@@ -216,9 +216,15 @@
                         <items>
                             <menuItem title="Main Menu" id="cnr-XA-kyQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="rfc-PA-t3b" id="Uyi-5e-vt7"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Bracket" id="QwW-8l-yQZ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="9uF-4p-dRK" id="x9a-0N-0S5"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Schedule" id="afD-Al-W1P">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -228,12 +234,18 @@
                             </menuItem>
                             <menuItem title="Staff" id="UzP-OH-Xi8">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="I86-mc-Rjy" id="pFd-iE-UnD"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Fields" id="cHK-im-LqU">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem title="Snitchkeeper" id="5M0-c7-cXg">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="TAN-M7-QIC" id="K2U-nw-XDl"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Social" id="ACd-4l-elj">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -668,10 +680,13 @@
                     <button id="e8x-Wo-vyU">
                         <rect key="frame" x="120" y="608" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cdg-c6-L2S">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="cdg-c6-L2S">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="HZW-lX-Wjl"/>
+                        </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" id="hbZ-uf-Abd">
                         <rect key="frame" x="81" y="721" width="180" height="26"/>
@@ -687,6 +702,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="HTp-Ix-Mvy"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sQW-kH-gr7">
                         <rect key="frame" x="145" y="753" width="51" height="17"/>
@@ -700,17 +718,26 @@
                     <popUpButton verticalHuggingPriority="750" id="oAg-Qn-Rom">
                         <rect key="frame" x="714" y="721" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="rLJ-gV-Q9u" id="aOG-gJ-UYt">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="aOG-gJ-UYt">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Sa7-fl-FZs">
                                 <items>
-                                    <menuItem title="Item 1" state="on" id="rLJ-gV-Q9u"/>
-                                    <menuItem title="Item 2" id="86e-uR-ggF"/>
-                                    <menuItem title="Item 3" id="Oco-Eh-VcX"/>
+                                    <menuItem title="Item 1" id="rLJ-gV-Q9u">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Item 2" id="86e-uR-ggF">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Item 3" id="Oco-Eh-VcX">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="lE1-zN-2gL"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qhT-vq-sK9">
                         <rect key="frame" x="778" y="753" width="51" height="17"/>
@@ -738,74 +765,80 @@
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Ykz-d8-4LI">
                                 <items>
-                                    <menuItem title="Item 1" state="on" id="HnJ-7e-L3j"/>
+                                    <menuItem title="Item 1" state="on" image="snitchIcon" id="HnJ-7e-L3j"/>
                                     <menuItem title="Item 2" id="PhY-Z9-F49"/>
                                     <menuItem title="Item 3" id="X3q-U2-PJH"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="ZuN-mH-2AE"/>
+                        </connections>
                     </popUpButton>
                     <button id="pRw-X2-dXj">
                         <rect key="frame" x="753" y="608" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3oY-ft-Fun">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="3oY-ft-Fun">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="hcZ-iV-ioK"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="9gs-2S-86I">
                         <rect key="frame" x="441" y="626" width="78" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EVc-iX-PXl">
+                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EVc-iX-PXl">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStartPressed:" target="M2R-xQ-C98" id="q25-L8-XxN"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="9G4-ob-duX"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="IfP-m6-Bfl">
                         <rect key="frame" x="447" y="600" width="67" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1ei-c9-LjL">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1ei-c9-LjL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopPressed:" target="M2R-xQ-C98" id="ASh-13-Hrj"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="zJc-xv-x9F"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="lEf-Su-hyP">
                         <rect key="frame" x="424" y="574" width="112" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wV7-n5-Hce">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wV7-n5-Hce">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopInjuryPressed:" target="M2R-xQ-C98" id="g5D-i1-wif"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="9zG-4O-jVf"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="w4F-Cq-Gj5">
                         <rect key="frame" x="377" y="548" width="207" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Continue Seeker Floor)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99b-2f-acs">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play (Continue Seeker Floor)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99b-2f-acs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopContinueSeekerFloorPressed:" target="M2R-xQ-C98" id="Aea-OA-TXJ"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="Zhc-jo-QHd"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="LH5-ed-rla">
                         <rect key="frame" x="404" y="522" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cbA-Kr-3lW">
+                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cbA-Kr-3lW">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onEndGamePressed:" target="M2R-xQ-C98" id="yRP-mo-OUU"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="h68-Eg-RaB"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JDc-tg-pDT">
@@ -829,10 +862,13 @@
                     <button verticalHuggingPriority="750" id="yjz-Q1-Y6J">
                         <rect key="frame" x="425" y="20" width="110" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="squareTextured" title="Add Penalty" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
+                        <buttonCell key="cell" type="squareTextured" title="Add Penalty" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="pXZ-go-lf1"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="EF8-D1-EOq">
                         <rect key="frame" x="401" y="400" width="158" height="17"/>
@@ -851,7 +887,7 @@
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStartGameOTPressed:" target="M2R-xQ-C98" id="UVo-9e-HFn"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="6m6-va-O7e"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="IO8-HJ-1sf">
@@ -862,7 +898,7 @@
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopPlayOTPressed:" target="M2R-xQ-C98" id="8Zd-Rh-1IF"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="bOG-Pg-ALI"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="ewc-39-KaA">
@@ -873,7 +909,7 @@
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopPlayInjuryOTPressed:" target="M2R-xQ-C98" id="A91-Up-2nQ"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="YX5-OA-J7M"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="PqD-Wk-G4l">
@@ -884,7 +920,7 @@
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onEndGameOTPressed:" target="M2R-xQ-C98" id="adq-gK-zH0"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="dhD-1r-WIR"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="K2f-IU-kKO">
@@ -899,45 +935,45 @@
                     <button verticalHuggingPriority="750" id="UfJ-rU-ogA">
                         <rect key="frame" x="441" y="187" width="78" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oT5-tE-kw8">
+                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oT5-tE-kw8">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStartGameSDPressed:" target="M2R-xQ-C98" id="thR-IK-h00"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="2yE-Gt-J7X"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="I6k-3e-xY8">
                         <rect key="frame" x="447" y="161" width="67" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cNA-fR-xdC">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cNA-fR-xdC">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopPlaySDPressed:" target="M2R-xQ-C98" id="Qt6-7r-Tlh"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="aOz-Mx-1wQ"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="ZeM-Xn-8yp">
                         <rect key="frame" x="424" y="135" width="112" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hAD-L8-kbf">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hAD-L8-kbf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onStopPlayInjurySDPressed:" target="M2R-xQ-C98" id="yyw-ah-MVF"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="62w-lh-yVi"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="ocf-mG-AeH">
                         <rect key="frame" x="404" y="107" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PkI-eN-rIf">
+                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PkI-eN-rIf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onEndGameSDPressed:" target="M2R-xQ-C98" id="gc3-pv-d8N"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="FbI-KG-n03"/>
                         </connections>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="bRo-fq-WK6">
@@ -949,47 +985,53 @@
                         </buttonCell>
                     </button>
                     <button id="DoJ-0Q-HjI">
-                        <rect key="frame" x="28" y="642" width="138" height="64"/>
+                        <rect key="frame" x="28" y="646" width="138" height="58"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WCu-XN-A3l">
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WCu-XN-A3l">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="5mv-6h-jJ7"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="G59-V5-WL5"/>
                         </connections>
                     </button>
                     <button id="edK-4o-vZe">
                         <rect key="frame" x="182" y="642" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GXH-XX-qs6">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="miniSystem"/>
-                        </buttonCell>
-                    </button>
-                    <button id="sal-2y-MQm">
-                        <rect key="frame" x="657" y="642" width="138" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iuU-bQ-a9r">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GXH-XX-qs6">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="eUs-IQ-uvH"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="Ymx-bb-tV3"/>
+                        </connections>
+                    </button>
+                    <button id="sal-2y-MQm">
+                        <rect key="frame" x="657" y="642" width="138" height="64"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iuU-bQ-a9r">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="8ce-Do-Gbi"/>
                         </connections>
                     </button>
                     <button id="pha-E8-wdv">
                         <rect key="frame" x="811" y="642" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KMQ-G5-3EC">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KMQ-G5-3EC">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="9iy-Ej-ech"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LST-VW-L5t">
                         <rect key="frame" x="490" y="749" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="SVL-81-G2p">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="SVL-81-G2p">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1007,7 +1049,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="odK-9T-Qht">
                         <rect key="frame" x="367" y="749" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="RMz-0G-efm">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="RMz-0G-efm">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1016,61 +1058,73 @@
                     <button id="ZPc-Dr-dqa">
                         <rect key="frame" x="120" y="349" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="qDa-T0-RH0">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="qDa-T0-RH0">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="fL7-O6-7pw"/>
+                        </connections>
                     </button>
                     <button id="5QW-AX-ZwX">
                         <rect key="frame" x="28" y="383" width="138" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Obc-2b-xFd">
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Obc-2b-xFd">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="iNp-5r-RgU"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="YGY-J0-1G4"/>
                         </connections>
                     </button>
                     <button id="ZJp-Me-h60">
                         <rect key="frame" x="182" y="383" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Pd-ri-w53">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="miniSystem"/>
-                        </buttonCell>
-                    </button>
-                    <button id="7Bx-df-oN0">
-                        <rect key="frame" x="753" y="349" width="101" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Yjv-KG-nyF">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button id="zMv-pv-67j">
-                        <rect key="frame" x="657" y="383" width="138" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Uou-2S-4MO">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Pd-ri-w53">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="O9d-76-vNf"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="xej-Yg-Rg9"/>
+                        </connections>
+                    </button>
+                    <button id="7Bx-df-oN0">
+                        <rect key="frame" x="753" y="349" width="101" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Yjv-KG-nyF">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="PiM-Tw-mV7"/>
+                        </connections>
+                    </button>
+                    <button id="zMv-pv-67j">
+                        <rect key="frame" x="657" y="383" width="138" height="64"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Uou-2S-4MO">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="IAs-ag-nv2"/>
                         </connections>
                     </button>
                     <button id="JBF-FC-rp8">
                         <rect key="frame" x="811" y="383" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uxo-Up-GE1">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uxo-Up-GE1">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="wmL-3J-8Mo"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Fs7-BM-zSq">
                         <rect key="frame" x="490" y="432" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="NT8-ht-unN">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="NT8-ht-unN">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1088,7 +1142,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wg5-rH-ECQ">
                         <rect key="frame" x="367" y="432" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="KLA-AV-cgN">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="KLA-AV-cgN">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1097,7 +1151,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pug-FI-tg2">
                         <rect key="frame" x="490" y="228" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="4dZ-sW-08f">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="4dZ-sW-08f">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1115,7 +1169,7 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YAK-5n-bIH">
                         <rect key="frame" x="367" y="228" width="103" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="WKl-6H-WZx">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00" id="WKl-6H-WZx">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1124,88 +1178,100 @@
                     <button id="lQZ-l6-1B9">
                         <rect key="frame" x="120" y="135" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="slc-jc-hHY">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="slc-jc-hHY">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="ogw-0q-gcc"/>
+                        </connections>
                     </button>
                     <button id="j63-Fl-Vzd">
                         <rect key="frame" x="28" y="169" width="138" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="glB-G8-zgs">
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="glB-G8-zgs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="WKZ-3H-qGV"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="NW1-KQ-Kgo"/>
                         </connections>
                     </button>
                     <button id="2q2-Cz-JNM">
                         <rect key="frame" x="182" y="169" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UCD-VJ-1fq">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="miniSystem"/>
-                        </buttonCell>
-                    </button>
-                    <button id="vyn-Nq-pCu">
-                        <rect key="frame" x="753" y="135" width="101" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Y4c-LE-VM3">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" size="13" name="LucidaGrande"/>
-                        </buttonCell>
-                    </button>
-                    <button id="5c9-Ba-q2r">
-                        <rect key="frame" x="657" y="169" width="138" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cee-M9-Ztf">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UCD-VJ-1fq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="scoreManager:" target="M2R-xQ-C98" id="ahT-sj-6If"/>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="ZYn-mB-g1n"/>
+                        </connections>
+                    </button>
+                    <button id="vyn-Nq-pCu">
+                        <rect key="frame" x="753" y="135" width="101" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Y4c-LE-VM3">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name="LucidaGrande"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="KKk-xD-YeT"/>
+                        </connections>
+                    </button>
+                    <button id="5c9-Ba-q2r">
+                        <rect key="frame" x="657" y="169" width="138" height="64"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" title="Add Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cee-M9-Ztf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="nhM-9q-kF8"/>
                         </connections>
                     </button>
                     <button id="p4i-DO-etC">
                         <rect key="frame" x="811" y="169" width="157" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E3K-uy-Wt1">
+                        <buttonCell key="cell" type="bevel" title="Remove Goal at Current Time" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E3K-uy-Wt1">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scoreManager:" target="M2R-xQ-C98" id="mDF-ld-blI"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YgN-RP-70F">
-                        <rect key="frame" x="116" y="820" width="109" height="24"/>
+                        <rect key="frame" x="116" y="814" width="109" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Play Clock" id="EVa-5r-BSg">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="EVa-5r-BSg">
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0JZ-J2-vTA">
-                        <rect key="frame" x="313" y="820" width="124" height="24"/>
+                        <rect key="frame" x="313" y="814" width="124" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Seeker Floor" id="EbD-4S-66S">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="EbD-4S-66S">
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6FB-vQ-wiL">
-                        <rect key="frame" x="591" y="820" width="109" height="24"/>
+                        <rect key="frame" x="591" y="814" width="109" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="OT Clock" id="HY2-g8-rxZ">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="HY2-g8-rxZ">
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vPa-2L-4IP">
-                        <rect key="frame" x="853" y="820" width="115" height="24"/>
+                        <rect key="frame" x="853" y="814" width="115" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2xOT Clock" id="eFG-o6-cC0">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="eFG-o6-cC0">
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1250,12 +1316,12 @@
                     <button verticalHuggingPriority="750" id="JoC-OD-qLc">
                         <rect key="frame" x="407" y="496" width="146" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Snitch Returns to Pitch" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j1f-yz-xvs">
+                        <buttonCell key="cell" type="roundRect" title="Snitch Returns to Pitch" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j1f-yz-xvs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onSnitchPitchPressed:" target="M2R-xQ-C98" id="Yof-rr-BeE"/>
+                            <action selector="onSnitchPitchPressed:" target="M2R-xQ-C98" id="1vx-c9-lQP"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="mHo-JE-evA">
@@ -1266,7 +1332,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="onCommitGamePressed:" target="M2R-xQ-C98" id="DPG-Gl-apS"/>
+                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="eUp-Zg-4Vr"/>
                         </connections>
                     </button>
                 </subviews>
@@ -1330,6 +1396,7 @@
                 <outlet property="addGoalT2" destination="sal-2y-MQm" id="MQO-2H-1I4"/>
                 <outlet property="addGoalT2OT" destination="zMv-pv-67j" id="zLV-LB-H1Q"/>
                 <outlet property="addGoalT2SD" destination="5c9-Ba-q2r" id="QdA-Ub-oCo"/>
+                <outlet property="commitGame" destination="mHo-JE-evA" id="2Vo-QM-Tue"/>
                 <outlet property="endGame" destination="LH5-ed-rla" id="p1W-PH-W4J"/>
                 <outlet property="endGameOT" destination="PqD-Wk-G4l" id="xX2-lD-DOq"/>
                 <outlet property="endGameSD" destination="ocf-mG-AeH" id="sC2-aI-aJ8"/>
@@ -1354,7 +1421,7 @@
                 <outlet property="snitchCatchT2SD" destination="vyn-Nq-pCu" id="exr-Ng-Zfq"/>
                 <outlet property="snitchKeeper" destination="TAN-M7-QIC" id="fNa-MQ-FYT"/>
                 <outlet property="snitchPitch" destination="JoC-OD-qLc" id="oe1-2Y-N4y"/>
-                <outlet property="startGame" destination="9gs-2S-86I" id="plB-XB-feu"/>
+                <outlet property="startGame" destination="9gs-2S-86I" id="zCa-BN-XJU"/>
                 <outlet property="startGameOT" destination="U25-xa-re8" id="2F3-q5-koj"/>
                 <outlet property="startGameSD" destination="UfJ-rU-ogA" id="8Vc-fb-rnV"/>
                 <outlet property="stopPlay" destination="IfP-m6-Bfl" id="pct-Pf-mz1"/>
@@ -1366,7 +1433,7 @@
                 <outlet property="stopPlaySeekerContinue" destination="w4F-Cq-Gj5" id="JHG-aL-BIQ"/>
                 <outlet property="t1OTScore" destination="wg5-rH-ECQ" id="icm-vW-WgE"/>
                 <outlet property="t1SDScore" destination="YAK-5n-bIH" id="LaF-O6-yhy"/>
-                <outlet property="t1Score" destination="odK-9T-Qht" id="Re8-2l-p8Y"/>
+                <outlet property="t1Score" destination="odK-9T-Qht" id="mh2-4c-kG2"/>
                 <outlet property="t2OTScore" destination="Fs7-BM-zSq" id="jEX-pj-qys"/>
                 <outlet property="t2SDScore" destination="pug-FI-tg2" id="iOD-Aq-bO5"/>
                 <outlet property="t2Score" destination="LST-VW-L5t" id="eeW-hv-RFW"/>
@@ -1374,13 +1441,9 @@
                 <outlet property="teamTwo" destination="oAg-Qn-Rom" id="Dbz-ph-bSt"/>
             </connections>
         </customObject>
-        <customObject id="vpm-ej-ZVE" customClass="NSTimerController">
-            <connections>
-                <outlet property="timerLabel" destination="YgN-RP-70F" id="q18-tP-PMT"/>
-            </connections>
-        </customObject>
     </objects>
     <resources>
         <image name="lock" width="32" height="32"/>
+        <image name="snitchIcon" width="109" height="71"/>
     </resources>
 </document>

@@ -43,6 +43,7 @@
     IBOutlet NSButton *stopPlayInjurySD;
     IBOutlet NSButton *endGameSD;
     IBOutlet NSButton *penalty;
+    IBOutlet NSButton *commitGame;
     IBOutlet NSPopUpButton *teamOne;
     IBOutlet NSPopUpButton *teamTwo;
     IBOutlet NSPopUpButton *snitch;

@@ -12,48 +12,111 @@
 @implementation Snitchkeeper
 @synthesize playClock;
 
-BOOL started = TRUE;
-BOOL stopped = FALSE;
 BOOL snitchPitchTrue = FALSE;
 int currentTime = 0;
 int hours, minutes, seconds = 0;
+int t1ScoreCurrent, t1ScoreOTCurrent, t1ScoreSDCurrent, t2ScoreCurrent, t2ScoreOTCurrent, t2ScoreSDCurrent = 0;
+NSString *gameState = @"";
 
 
 -(IBAction)scoreManager:(id)sender {
-    int t1ScoreCurrent = 0;
-    int t2ScoreCurrent = 0;
-    int t1ScoreOTCurrent = 0;
-    int t2ScoreOTCurrent = 0;
-    int t1ScoreSDCurrent = 0;
-    int t2ScoreSDCurrent = 0;
-    
-    if (addGoalT1) {
-        t1ScoreCurrent = t1ScoreCurrent + 10;
-        [t1Score insertText:[NSString stringWithFormat:@"%d", t1ScoreCurrent]];
+    if ([gameState isEqual: @"regTime"]) {
+        if (addGoalT1.state == NSOnState) {
+            t1ScoreCurrent = t1ScoreCurrent + 10;
+            addGoalT1.state = NSOffState;
+        }
+        else if (addGoalT2.state == NSOnState) {
+            t2ScoreCurrent = t2ScoreCurrent + 10;
+            addGoalT2.state = NSOffState;
+        }
+        else if (remGoalT1.state == NSOnState) {
+            if (t1ScoreCurrent < 1) {
+            }
+            else {
+                t1ScoreCurrent = t1ScoreCurrent - 10;
+            }
+            remGoalT1.state = NSOffState;
+        }
+        else if (remGoalT2.state == NSOnState) {
+            if (t2ScoreCurrent < 1) {
+            }
+            else {
+                t2ScoreCurrent = t2ScoreCurrent - 10;
+            }
+            remGoalT2.state = NSOffState;
+        }
     }
-    if (addGoalT1OT) {
-        t1ScoreOTCurrent = t1ScoreOTCurrent + 10;
-        [t1OTScore insertText:[NSString stringWithFormat:@"%d", t1ScoreOTCurrent]];
+    else if ([gameState isEqual: @"oTime"]) {
+        if (addGoalT1OT.state == NSOnState) {
+            t1ScoreOTCurrent = t1ScoreOTCurrent + 10;
+            addGoalT1OT.state = NSOffState;
+        }
+        else if (addGoalT2OT.state == NSOnState) {
+            t2ScoreOTCurrent = t2ScoreOTCurrent + 10;
+            addGoalT2OT.state = NSOffState;
+        }
+        else if (remGoalT1OT.state == NSOnState) {
+            if (t1ScoreOTCurrent < 1) {
+            }
+            else {
+                t1ScoreOTCurrent = t1ScoreOTCurrent - 10;
+            }
+            remGoalT1OT.state = NSOffState;
+        }
+        else if (remGoalT2OT.state == NSOnState) {
+            if (t2ScoreOTCurrent < 1) {
+            }
+            else {
+                t2ScoreOTCurrent = t2ScoreOTCurrent - 10;
+            }
+            remGoalT2OT.state = NSOffState;
+        }
     }
-    if (addGoalT1SD) {
-        t1ScoreSDCurrent = t1ScoreSDCurrent + 10;
-        [t1SDScore insertText:[NSString stringWithFormat:@"%d", t1ScoreSDCurrent]];
+    else if ([gameState isEqual: @"sdTime"]) {
+        if (addGoalT1SD.state == NSOnState) {
+            t1ScoreSDCurrent = t1ScoreSDCurrent + 10;
+            addGoalT1SD.state = NSOffState;
+        }
+        else if (addGoalT2SD.state == NSOnState) {
+            t2ScoreSDCurrent = t2ScoreSDCurrent + 10;
+            addGoalT2SD.state = NSOffState;
+        }
+        else if (remGoalT1SD.state == NSOnState) {
+            if (t1ScoreSDCurrent < 1) {
+            }
+            else {
+                t1ScoreSDCurrent = t1ScoreSDCurrent - 10;
+            }
+            remGoalT1SD.state = NSOffState;
+        }
+        else if (remGoalT2SD.state == NSOnState) {
+            if (t2ScoreSDCurrent < 1) {
+            }
+            else {
+                t2ScoreSDCurrent = t2ScoreSDCurrent - 10;
+            }
+            remGoalT2SD.state = NSOffState;
+        }
     }
-    if (addGoalT2) {
-        t2ScoreCurrent = t2ScoreCurrent + 10;
-        [t2Score insertText:[NSString stringWithFormat:@"%d", t2ScoreCurrent]];
+    [self scoreFieldsUpdate];
+}
+
+-(void)scoreFieldsUpdate {
+    if ([gameState  isEqual: @"regTime"]) {
+        [t1Score setIntegerValue:t1ScoreCurrent];
+        [t2Score setIntegerValue:t2ScoreCurrent];
     }
-    if (addGoalT2OT) {
-        t2ScoreOTCurrent = t2ScoreOTCurrent + 10;
-        [t2OTScore insertText:[NSString stringWithFormat:@"%d", t2ScoreOTCurrent]];
+    else if ([gameState  isEqual: @"oTime"]) {
+        [t1OTScore setIntegerValue:t1ScoreOTCurrent];
+        [t2OTScore setIntegerValue:t2ScoreOTCurrent];
     }
-    if (addGoalT2SD) {
-        t2ScoreSDCurrent = t2ScoreSDCurrent + 10;
-        [t2SDScore insertText:[NSString stringWithFormat:@"%d", t2ScoreSDCurrent]];
+    else if ([gameState isEqual: @"sdTime"]) {
+        [t1SDScore setIntegerValue:t1ScoreSDCurrent];
+        [t2SDScore setIntegerValue:t2ScoreSDCurrent];
     }
 }
 
-- (void)updateTimeKeeper:(NSTimer *)theTimer {
+/* -(void)updateTimeKeeper:(NSTimer *)theTimer {
     currentTime ++;
     hours = currentTime / 3600;
     minutes = (currentTime % 3600) / 60;
@@ -64,84 +127,67 @@ int hours, minutes, seconds = 0;
 -(void)timeKeeper {
     currentTime = hours = minutes = seconds = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimeKeeper:) userInfo:nil repeats:YES];
-}
+} */
 
-- (IBAction)onStartPressed:(id)sender {
-    if(started) {
-        [startGame setEnabled:NO];
-        [stopPlay setEnabled:YES];
-        [stopPlayInjury setEnabled:YES];
-        [stopPlaySeekerContinue setEnabled:YES];
-        [endGame setEnabled:YES];
-        if (snitchPitchTrue) {
-            [snitchPitch setEnabled:NO];
-        }
-        else {
-            [snitchPitch setEnabled:YES];
-        }
+- (IBAction)buttonStateManager:(id)sender {
+    if(startGame.state == NSOnState) {
+        [self onStartPressed];
+        startGame.state = NSOffState;
+    }
+    else if(stopPlay.state == NSOnState) {
+        [self onStopPressed];
+        stopPlay.state = NSOffState;
+    }
+    else if(stopPlayInjury.state == NSOnState) {
+        [self onStopInjuryPressed];
+        stopPlayInjury.state = NSOffState;
+    }
+    else if(stopPlaySeekerContinue.state == NSOnState) {
+        [self onStopContinueSeekerFloorPressed];
+        stopPlaySeekerContinue.state = NSOffState;
+    }
+    else if (endGame.state == NSOnState) {
+        [self onEndGamePressed];
+        endGame.state = NSOffState;
+    }
+    else if (startGameOT.state == NSOnState) {
+        [self onStartGameOTPressed];
+        startGameOT.state = NSOffState;
+    }
+    else if(stopPlayOT.state == NSOnState) {
+        [self onStopPlayOTPressed];
+        stopPlayOT.state = NSOffState;
+    }
+    else if(stopPlayInjuryOT.state == NSOnState) {
+        [self onStopPlayInjuryOTPressed];
+        stopPlayInjuryOT.state = NSOffState;
+    }
+    else if (endGameOT.state == NSOnState) {
+        [self onEndGameOTPressed];
+        endGameOT.state = NSOffState;
+    }
+    else if (startGameSD.state == NSOnState) {
+        [self onStartGameSDPressed];
+        startGameSD.state = NSOffState;
+    }
+    else if (stopPlaySD.state == NSOnState) {
+        [self onStopPlaySDPressed];
+        stopPlaySD.state = NSOffState;
+    }
+    else if  (stopPlayInjurySD.state == NSOnState) {
+        [self onStopPlayInjurySDPressed];
+        stopPlayInjurySD.state = NSOffState;
+    }
+    else if (endGameSD.state == NSOnState) {
+        [self onEndGameSDPressed];
+        endGameSD.state = NSOffState;
+    }
+    else if (commitGame.state == NSOnState) {
+        [self onCommitGamePressed];
+        commitGame.state = NSOffState;
     }
     else {
-        started = TRUE;
-    }
-}
-
-- (IBAction)onStopPressed:(id)sender {
-    if(stopped) {
-        [startGame setEnabled:YES];
-        [stopPlay setEnabled:NO];
-        [stopPlayInjury setEnabled:NO];
-        [stopPlaySeekerContinue setEnabled:NO];
-        [snitchPitch setEnabled:NO];
-        [endGame setEnabled:YES];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onStopInjuryPressed:(id)sender {
-    if(stopped) {
-        // Game has stopped due to an injury
-        [startGame setEnabled:YES];
-        [stopPlay setEnabled:NO];
-        [stopPlayInjury setEnabled:NO];
-        [stopPlaySeekerContinue setEnabled:NO];
-        [snitchPitch setEnabled:NO];
-        [endGame setEnabled:NO];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onStopContinueSeekerFloorPressed:(id)sender {
-    if(stopped) {
-        // Gameplay clock stops, seeker floor clock continues to count down
-        [startGame setEnabled:YES];
-        [stopPlay setEnabled:NO];
-        [stopPlayInjury setEnabled:NO];
-        [stopPlaySeekerContinue setEnabled:NO];
-        [snitchPitch setEnabled:NO];
-        [endGame setEnabled:NO];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onEndGamePressed:(id)sender {
-    if(stopped) {
-        // Stops clock, enables OT buttons
-        [startGame setEnabled:YES];
-        [stopPlay setEnabled:NO];
-        [stopPlayInjury setEnabled:NO];
-        [stopPlaySeekerContinue setEnabled:NO];
-        [snitchPitch setEnabled:NO];
-        [endGame setEnabled:NO];
-        [startGameOT setEnabled:YES];
-    }
-    else {
-        stopped = TRUE;
+        
     }
 }
 
@@ -156,114 +202,206 @@ int hours, minutes, seconds = 0;
     
 }
 
-
-- (IBAction)onStartGameOTPressed:(id)sender {
-    if(started) {
-        // Stops clock, enables SD buttons
-        [startGameOT setEnabled:NO];
-        [startGame setEnabled:NO];
-        [stopPlayOT setEnabled:YES];
-        [stopPlayInjuryOT setEnabled:YES];
-        [endGameOT setEnabled:YES];
-    }
-    else {
-        started = TRUE;
-    }
+-(void)teamSelectDisabled {
+    [snitch setEnabled:NO];
+    [teamOne setEnabled:NO];
+    [teamTwo setEnabled:NO];
 }
 
-- (IBAction)onStopPlayInjuryOTPressed:(id)sender {
-    if(stopped) {
-        // Stops clock, enables SD buttons
-        [startGameOT setEnabled:YES];
-        [stopPlayOT setEnabled:NO];
-        [stopPlayInjuryOT setEnabled:NO];
-        [endGameOT setEnabled:NO];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onStopPlayOTPressed:(id)sender {
-    if(stopped) {
-        // Stops clock, enables SD buttons
-        [startGameOT setEnabled:YES];
-        [stopPlayOT setEnabled:NO];
-        [stopPlayInjuryOT setEnabled:NO];
-        [endGameOT setEnabled:YES];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onEndGameOTPressed:(id)sender {
-    if(stopped) {
-        // Stops clock, enables SD buttons
-        [startGameOT setEnabled:YES];
-        [stopPlayOT setEnabled:NO];
-        [stopPlayInjuryOT setEnabled:NO];
-        [endGameOT setEnabled:NO];
-        [startGameSD setEnabled:YES];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onStartGameSDPressed:(id)sender {
-    if(started) {
-        [startGameSD setEnabled:NO];
-        [startGameOT setEnabled:NO];
-        [stopPlaySD setEnabled:YES];
-        [stopPlayInjurySD setEnabled:YES];
-        [endGameSD setEnabled:YES];
-    }
-    else {
-        started = TRUE;
-    }
-}
-
-- (IBAction)onStopPlayInjurySDPressed:(id)sender {
-    if(stopped) {
-        [startGameSD setEnabled:YES];
-        [stopPlaySD setEnabled:NO];
-        [stopPlayInjurySD setEnabled:NO];
-        [endGameSD setEnabled:NO];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onStopPlaySDPressed:(id)sender {
-    if(stopped) {
-        [startGameSD setEnabled:YES];
-        [stopPlaySD setEnabled:NO];
-        [stopPlayInjurySD setEnabled:NO];
-        [endGameSD setEnabled:YES];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onEndGameSDPressed:(id)sender {
-    if(stopped) {
-        [startGameSD setEnabled:YES];
-        [stopPlaySD setEnabled:NO];
-        [stopPlayInjurySD setEnabled:NO];
-        [endGameSD setEnabled:NO];
-    }
-    else {
-        stopped = TRUE;
-    }
-}
-
-- (IBAction)onCommitGamePressed:(id)sender {
-    [startGameSD setEnabled:NO];
-    [startGameOT setEnabled:NO];
+- (void)regDisabled {
     [startGame setEnabled:NO];
+    [stopPlay setEnabled:NO];
+    [stopPlayInjury setEnabled:NO];
+    [stopPlaySeekerContinue setEnabled:NO];
+    [endGame setEnabled:NO];
+    [snitchPitch setEnabled:NO];
+    [addGoalT1 setEnabled:NO];
+    [addGoalT2 setEnabled:NO];
+    [remGoalT1 setEnabled:NO];
+    [remGoalT2 setEnabled:NO];
+}
+
+- (void)otDisabled {
+    [startGameOT setEnabled:NO];
+    [stopPlayOT setEnabled:NO];
+    [stopPlayInjuryOT setEnabled:NO];
+    [endGameOT setEnabled:NO];
+    [addGoalT1OT setEnabled:NO];
+    [addGoalT2OT setEnabled:NO];
+    [remGoalT1OT setEnabled:NO];
+    [remGoalT2OT setEnabled:NO];
+}
+
+- (void)sdDisabled {
+    [startGameSD setEnabled:NO];
+    [stopPlaySD setEnabled:NO];
+    [stopPlayInjurySD setEnabled:NO];
+    [endGameSD setEnabled:NO];
+    [addGoalT1SD setEnabled:NO];
+    [addGoalT2SD setEnabled:NO];
+    [remGoalT1SD setEnabled:NO];
+    [remGoalT2SD setEnabled:NO];
+}
+
+- (void)onStartPressed {
+    [startGame setEnabled:NO];
+    [stopPlay setEnabled:YES];
+    [stopPlayInjury setEnabled:YES];
+    [stopPlaySeekerContinue setEnabled:YES];
+    [endGame setEnabled:YES];
+    [self otDisabled];
+    [self sdDisabled];
+    [self teamSelectDisabled];
+    gameState = @"regTime";
+    [addGoalT1 setEnabled:YES];
+    [addGoalT2 setEnabled:YES];
+    [remGoalT2 setEnabled:YES];
+    [remGoalT1 setEnabled:YES];
+    if (snitchPitchTrue) {
+        [snitchPitch setEnabled:NO];
+    }
+    else {
+        [snitchPitch setEnabled:YES];
+    }
+}
+
+- (void)onStopPressed {
+    [startGame setEnabled:YES];
+    [stopPlay setEnabled:NO];
+    [stopPlayInjury setEnabled:NO];
+    [stopPlaySeekerContinue setEnabled:NO];
+    [snitchPitch setEnabled:NO];
+    [endGame setEnabled:YES];
+    [self otDisabled];
+    [self sdDisabled];
+}
+
+- (void)onStopInjuryPressed {
+    // Game has stopped due to an injury
+    [startGame setEnabled:YES];
+    [stopPlay setEnabled:NO];
+    [stopPlayInjury setEnabled:NO];
+    [stopPlaySeekerContinue setEnabled:NO];
+    [snitchPitch setEnabled:NO];
+    [endGame setEnabled:NO];
+    [self otDisabled];
+    [self sdDisabled];
+}
+
+- (void)onStopContinueSeekerFloorPressed {
+    // Gameplay clock stops, seeker floor clock continues to count down
+    [startGame setEnabled:YES];
+    [stopPlay setEnabled:NO];
+    [stopPlayInjury setEnabled:NO];
+    [stopPlaySeekerContinue setEnabled:NO];
+    [snitchPitch setEnabled:NO];
+    [endGame setEnabled:NO];
+    [self otDisabled];
+    [self sdDisabled];
+}
+
+- (void)onEndGamePressed {
+    // Stops clock, enables OT buttons
+    [startGame setEnabled:YES];
+    [stopPlay setEnabled:NO];
+    [stopPlayInjury setEnabled:NO];
+    [stopPlaySeekerContinue setEnabled:NO];
+    [snitchPitch setEnabled:NO];
+    [endGame setEnabled:NO];
+    [startGameOT setEnabled:YES];
+    [self sdDisabled];
+}
+
+- (void)onStartGameOTPressed {
+    // Stops clock, enables SD buttons
+    [startGameOT setEnabled:NO];
+    [stopPlayOT setEnabled:YES];
+    [stopPlayInjuryOT setEnabled:YES];
+    [endGameOT setEnabled:YES];
+    [self regDisabled];
+    [self sdDisabled];
+    gameState = @"oTime";
+    [addGoalT1OT setEnabled:YES];
+    [addGoalT2OT setEnabled:YES];
+    [remGoalT2OT setEnabled:YES];
+    [remGoalT1OT setEnabled:YES];
+}
+
+- (void)onStopPlayInjuryOTPressed {
+    // Stops clock, enables SD buttons
+    [startGameOT setEnabled:YES];
+    [stopPlayOT setEnabled:NO];
+    [stopPlayInjuryOT setEnabled:NO];
+    [endGameOT setEnabled:NO];
+    [self regDisabled];
+    [self sdDisabled];
+}
+
+- (void)onStopPlayOTPressed {
+    // Stops clock, enables SD buttons
+    [startGameOT setEnabled:YES];
+    [stopPlayOT setEnabled:NO];
+    [stopPlayInjuryOT setEnabled:NO];
+    [endGameOT setEnabled:YES];
+    [self regDisabled];
+    [self sdDisabled];
+}
+
+- (void)onEndGameOTPressed {
+    // Stops clock, enables SD buttons
+    [startGameOT setEnabled:YES];
+    [startGameSD setEnabled:YES];
+    [stopPlayOT setEnabled:NO];
+    [stopPlayInjuryOT setEnabled:NO];
+    [endGameOT setEnabled:NO];
+    [self regDisabled];
+}
+
+- (void)onStartGameSDPressed {
+    [startGameSD setEnabled:NO];
+    [stopPlaySD setEnabled:YES];
+    [stopPlayInjurySD setEnabled:YES];
+    [endGameSD setEnabled:YES];
+    [self regDisabled];
+    [self otDisabled];
+    gameState = @"sdTime";
+    [addGoalT1SD setEnabled:YES];
+    [addGoalT2SD setEnabled:YES];
+    [remGoalT2SD setEnabled:YES];
+    [remGoalT1SD setEnabled:YES];
+}
+
+- (void)onStopPlayInjurySDPressed {
+    [startGameSD setEnabled:YES];
+    [stopPlaySD setEnabled:NO];
+    [stopPlayInjurySD setEnabled:NO];
+    [endGameSD setEnabled:NO];
+    [self regDisabled];
+    [self otDisabled];
+}
+
+- (void)onStopPlaySDPressed {
+    [startGameSD setEnabled:YES];
+    [stopPlaySD setEnabled:NO];
+    [stopPlayInjurySD setEnabled:NO];
+    [endGameSD setEnabled:YES];
+    [self regDisabled];
+    [self otDisabled];
+}
+
+- (void)onEndGameSDPressed {
+    [startGameSD setEnabled:YES];
+    [stopPlaySD setEnabled:NO];
+    [stopPlayInjurySD setEnabled:NO];
+    [endGameSD setEnabled:NO];
+    [self regDisabled];
+    [self otDisabled];
+}
+
+- (void)onCommitGamePressed {
+    [self regDisabled];
+    [self otDisabled];
+    [self sdDisabled];
 }
 
 @end

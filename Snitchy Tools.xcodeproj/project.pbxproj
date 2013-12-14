@@ -11,6 +11,7 @@
 		351444CA18469E3E00EBFC43 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988718459A2B00D6E13C /* AppKit.framework */; };
 		351444CB18469E4600EBFC43 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988818459A2B00D6E13C /* CoreData.framework */; };
 		3548C3B71846962E0090FF4F /* Snitchkeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3548C3B61846962E0090FF4F /* Snitchkeeper.m */; };
+		41CC9081185C2DB800CB1008 /* snitchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 41CC9080185C2DB800CB1008 /* snitchIcon.png */; };
 		41DC988518459A2B00D6E13C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DC988418459A2B00D6E13C /* Cocoa.framework */; };
 		41DC988F18459A2B00D6E13C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41DC988D18459A2B00D6E13C /* InfoPlist.strings */; };
 		41DC989118459A2B00D6E13C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC989018459A2B00D6E13C /* main.m */; };
@@ -40,6 +41,7 @@
 		3548C3B51846962E0090FF4F /* Snitchkeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snitchkeeper.h; sourceTree = "<group>"; };
 		3548C3B61846962E0090FF4F /* Snitchkeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snitchkeeper.m; sourceTree = "<group>"; };
 		35A4AB3B1846A25800CE2C16 /* Snitchy Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Snitchy Tools.entitlements"; sourceTree = "<group>"; };
+		41CC9080185C2DB800CB1008 /* snitchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snitchIcon.png; sourceTree = "<group>"; };
 		41DC988118459A2B00D6E13C /* Snitchy Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snitchy Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DC988418459A2B00D6E13C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		41DC988718459A2B00D6E13C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,7 @@
 		41DC988B18459A2B00D6E13C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41CC9080185C2DB800CB1008 /* snitchIcon.png */,
 				41DC98BF18459CC400D6E13C /* lock.png */,
 				41DC988C18459A2B00D6E13C /* Snitchy Tools-Info.plist */,
 				41DC988D18459A2B00D6E13C /* InfoPlist.strings */,
@@ -260,6 +263,7 @@
 				41DC989518459A2B00D6E13C /* Credits.rtf in Resources */,
 				41DC989E18459A2B00D6E13C /* MainMenu.xib in Resources */,
 				41DC98C018459CC400D6E13C /* lock.png in Resources */,
+				41CC9081185C2DB800CB1008 /* snitchIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
