@@ -680,12 +680,12 @@
                     <button id="e8x-Wo-vyU">
                         <rect key="frame" x="120" y="608" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="cdg-c6-L2S">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cdg-c6-L2S">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="HZW-lX-Wjl"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="93C-1P-UxY"/>
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" id="hbZ-uf-Abd">
@@ -702,9 +702,6 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="HTp-Ix-Mvy"/>
-                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sQW-kH-gr7">
                         <rect key="frame" x="145" y="753" width="51" height="17"/>
@@ -735,9 +732,6 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="lE1-zN-2gL"/>
-                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qhT-vq-sK9">
                         <rect key="frame" x="778" y="753" width="51" height="17"/>
@@ -771,19 +765,16 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="ZuN-mH-2AE"/>
-                        </connections>
                     </popUpButton>
                     <button id="pRw-X2-dXj">
                         <rect key="frame" x="753" y="608" width="101" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="3oY-ft-Fun">
+                        <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3oY-ft-Fun">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="hcZ-iV-ioK"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="vOD-z1-gN8"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="9gs-2S-86I">
@@ -808,19 +799,8 @@
                             <action selector="buttonStateManager:" target="M2R-xQ-C98" id="zJc-xv-x9F"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="lEf-Su-hyP">
-                        <rect key="frame" x="424" y="574" width="112" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wV7-n5-Hce">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="cellTitle"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="9zG-4O-jVf"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="w4F-Cq-Gj5">
-                        <rect key="frame" x="377" y="548" width="207" height="19"/>
+                        <rect key="frame" x="377" y="574" width="207" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Stop Play (Continue Seeker Floor)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99b-2f-acs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -831,7 +811,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="LH5-ed-rla">
-                        <rect key="frame" x="404" y="522" width="152" height="19"/>
+                        <rect key="frame" x="404" y="548" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cbA-Kr-3lW">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -860,9 +840,9 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="yjz-Q1-Y6J">
-                        <rect key="frame" x="425" y="20" width="110" height="25"/>
+                        <rect key="frame" x="393" y="20" width="175" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="squareTextured" title="Add Penalty" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
+                        <buttonCell key="cell" type="squareTextured" title="Add Penalty / Injury" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -901,19 +881,8 @@
                             <action selector="buttonStateManager:" target="M2R-xQ-C98" id="bOG-Pg-ALI"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="ewc-39-KaA">
-                        <rect key="frame" x="424" y="321" width="112" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jx2-b1-Z6x">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="cellTitle"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="YX5-OA-J7M"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="PqD-Wk-G4l">
-                        <rect key="frame" x="404" y="297" width="152" height="19"/>
+                        <rect key="frame" x="404" y="321" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xAZ-hZ-yLJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -954,19 +923,8 @@
                             <action selector="buttonStateManager:" target="M2R-xQ-C98" id="aOz-Mx-1wQ"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="ZeM-Xn-8yp">
-                        <rect key="frame" x="424" y="135" width="112" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play (Injury)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hAD-L8-kbf">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="cellTitle"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="62w-lh-yVi"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="ocf-mG-AeH">
-                        <rect key="frame" x="404" y="107" width="152" height="19"/>
+                        <rect key="frame" x="404" y="134" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PkI-eN-rIf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1063,7 +1021,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="fL7-O6-7pw"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="VWp-rv-LkB"/>
                         </connections>
                     </button>
                     <button id="5QW-AX-ZwX">
@@ -1096,7 +1054,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="PiM-Tw-mV7"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="2MA-17-8f0"/>
                         </connections>
                     </button>
                     <button id="zMv-pv-67j">
@@ -1183,7 +1141,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="ogw-0q-gcc"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="iRx-AK-n3T"/>
                         </connections>
                     </button>
                     <button id="j63-Fl-Vzd">
@@ -1216,7 +1174,7 @@
                             <font key="font" size="13" name="LucidaGrande"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="KKk-xD-YeT"/>
+                            <action selector="updateSnitchCatch:" target="M2R-xQ-C98" id="BxP-DI-QaU"/>
                         </connections>
                     </button>
                     <button id="5c9-Ba-q2r">
@@ -1314,7 +1272,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="JoC-OD-qLc">
-                        <rect key="frame" x="407" y="496" width="146" height="19"/>
+                        <rect key="frame" x="407" y="522" width="146" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Snitch Returns to Pitch" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j1f-yz-xvs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1425,9 +1383,6 @@
                 <outlet property="startGameOT" destination="U25-xa-re8" id="2F3-q5-koj"/>
                 <outlet property="startGameSD" destination="UfJ-rU-ogA" id="8Vc-fb-rnV"/>
                 <outlet property="stopPlay" destination="IfP-m6-Bfl" id="pct-Pf-mz1"/>
-                <outlet property="stopPlayInjury" destination="lEf-Su-hyP" id="98n-6f-15f"/>
-                <outlet property="stopPlayInjuryOT" destination="ewc-39-KaA" id="vCy-pB-z0j"/>
-                <outlet property="stopPlayInjurySD" destination="ZeM-Xn-8yp" id="HLX-b4-2Og"/>
                 <outlet property="stopPlayOT" destination="IO8-HJ-1sf" id="tpG-iK-v1H"/>
                 <outlet property="stopPlaySD" destination="I6k-3e-xY8" id="0q3-HS-FEY"/>
                 <outlet property="stopPlaySeekerContinue" destination="w4F-Cq-Gj5" id="JHG-aL-BIQ"/>

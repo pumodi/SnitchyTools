@@ -30,17 +30,14 @@
     IBOutlet NSButton *snitchCatchT2SD;
     IBOutlet NSButton *startGame;
     IBOutlet NSButton *stopPlay;
-    IBOutlet NSButton *stopPlayInjury;
     IBOutlet NSButton *stopPlaySeekerContinue;
     IBOutlet NSButton *endGame;
     IBOutlet NSButton *snitchPitch;
     IBOutlet NSButton *startGameOT;
     IBOutlet NSButton *stopPlayOT;
-    IBOutlet NSButton *stopPlayInjuryOT;
     IBOutlet NSButton *endGameOT;
     IBOutlet NSButton *startGameSD;
     IBOutlet NSButton *stopPlaySD;
-    IBOutlet NSButton *stopPlayInjurySD;
     IBOutlet NSButton *endGameSD;
     IBOutlet NSButton *penalty;
     IBOutlet NSButton *commitGame;
