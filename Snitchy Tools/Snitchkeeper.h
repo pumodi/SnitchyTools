@@ -10,6 +10,7 @@
 
 @interface Snitchkeeper : NSObject <NSApplicationDelegate> {
     IBOutlet NSWindow *snitchKeeper;
+    IBOutlet NSWindow *spectator;
     IBOutlet NSButton *addGoalT1;
     IBOutlet NSButton *addGoalT1OT;
     IBOutlet NSButton *addGoalT1SD;
@@ -55,11 +56,28 @@
     IBOutlet NSTextField *t2OTScore;
     IBOutlet NSTextField *t1SDScore;
     IBOutlet NSTextField *t2SDScore;
-    NSTimer *timer;
+    IBOutlet NSTextField *clockWinT1Score;
+    IBOutlet NSTextField *clockWinT2Score;
+    IBOutlet NSTextField *clockWinT1;
+    IBOutlet NSTextField *clockWinT2;
+    IBOutlet NSTextField *clockWinRegTimeIndic;
+    IBOutlet NSTextField *clockWinOverTimeIndic;
+    IBOutlet NSTextField *clockWinSDTimeIndic;
+    IBOutlet NSTextField *t1Name;
+    IBOutlet NSTextField *t2Name;
+    IBOutlet NSTextField *clockWinPlayClock;
+    IBOutlet NSTextField *clockWinSeekerFloor;
+    NSTimer *playClockTimer;
+    NSTimer *seekerFloorTimer;
+    NSTimer *otClockTimer;
+    NSTimer *sdClockTimer;
+    NSDate *startDate;
+    NSDate *seekerDate;
+    NSDate *otDate;
+    NSDate *sdDate;
+    
 }
 
 @property (nonatomic, retain) NSTextField *playClock;
--(void)updateTimeKeeper:(NSTimer *)theTimer;
--(void)timeKeeper;
 
 @end
