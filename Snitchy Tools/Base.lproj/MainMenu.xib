@@ -30,6 +30,7 @@
                 <outlet property="clockWinRegTimeIndic" destination="S8O-0Y-fP4" id="lzO-Vn-GIe"/>
                 <outlet property="clockWinSDTimeIndic" destination="YRf-zo-SLC" id="3km-cI-t64"/>
                 <outlet property="clockWinSeekerFloor" destination="wkl-hJ-Wsm" id="JB3-Yt-A1j"/>
+                <outlet property="clockWinSeekerFloorTitle" destination="NFW-3l-QeG" id="qId-RD-Cdk"/>
                 <outlet property="clockWinT1" destination="Pnq-kl-Nqr" id="DQl-pr-KH6"/>
                 <outlet property="clockWinT1Score" destination="nL1-bI-uCR" id="XKe-Vl-lAj"/>
                 <outlet property="clockWinT2" destination="3cE-eS-wpg" id="Yor-Sr-drW"/>
@@ -61,7 +62,7 @@
                 <outlet property="snitchPitch" destination="JoC-OD-qLc" id="oe1-2Y-N4y"/>
                 <outlet property="spectator" destination="HOv-TF-4Jj" id="jsy-pI-C1x"/>
                 <outlet property="startGame" destination="9gs-2S-86I" id="zCa-BN-XJU"/>
-                <outlet property="startGameOT" destination="U25-xa-re8" id="2F3-q5-koj"/>
+                <outlet property="startGameOT" destination="U25-xa-re8" id="TSR-NY-GDu"/>
                 <outlet property="startGameSD" destination="UfJ-rU-ogA" id="8Vc-fb-rnV"/>
                 <outlet property="stopPlay" destination="IfP-m6-Bfl" id="pct-Pf-mz1"/>
                 <outlet property="stopPlayOT" destination="IO8-HJ-1sf" id="tpG-iK-v1H"/>
@@ -76,7 +77,9 @@
                 <outlet property="t2SDScore" destination="pug-FI-tg2" id="iOD-Aq-bO5"/>
                 <outlet property="t2Score" destination="LST-VW-L5t" id="eeW-hv-RFW"/>
                 <outlet property="teamOne" destination="hbZ-uf-Abd" id="lci-2D-Ne3"/>
+                <outlet property="teamOneTextField" destination="Vhr-nM-Jmn" id="Daa-aU-FJJ"/>
                 <outlet property="teamTwo" destination="oAg-Qn-Rom" id="Dbz-ph-bSt"/>
+                <outlet property="teamTwoTextField" destination="Mo7-Xo-5rk" id="hGn-7h-ZyT"/>
             </connections>
         </customObject>
         <customObject id="hJa-P0-c88" customClass="SnitchyTools">
@@ -99,7 +102,7 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" enabled="NO" keyEquivalent="," id="129"/>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -139,15 +142,15 @@
                                     <action selector="newDocument:" target="-1" id="371"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open Tournament" keyEquivalent="o" id="72">
+                            <menuItem title="Open Tournament" enabled="NO" keyEquivalent="o" id="72">
                                 <connections>
                                     <action selector="openDocument:" target="-1" id="372"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open Recent Tournament" id="124">
+                            <menuItem title="Open Recent Tournament" enabled="NO" id="124">
                                 <menu key="submenu" title="Open Recent Tournament" systemMenu="recentDocuments" id="125">
                                     <items>
-                                        <menuItem title="Clear Menu" id="126">
+                                        <menuItem title="Clear Menu" enabled="NO" id="126">
                                             <connections>
                                                 <action selector="clearRecentDocuments:" target="-1" id="127"/>
                                             </connections>
@@ -158,25 +161,22 @@
                             <menuItem isSeparatorItem="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Export to CSV" id="bon-fx-JO5">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportToCSV:" target="hJa-P0-c88" id="4De-ll-uUJ"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Upload to Google Drive" id="gZL-wh-Vf8">
+                            <menuItem title="Export to CSV" enabled="NO" id="bon-fx-JO5">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
-                            <menuItem title="Upload to Snitchy Tools Database" id="ImW-hb-8EW">
+                            <menuItem title="Upload to Google Drive" enabled="NO" id="gZL-wh-Vf8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Upload to Snitchy Tools Database" enabled="NO" id="ImW-hb-8EW">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="XNt-0M-nAM"/>
-                            <menuItem title="Close Tournament" keyEquivalent="w" id="73">
+                            <menuItem title="Close Tournament" enabled="NO" keyEquivalent="w" id="73">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="193"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save Tournament" keyEquivalent="s" id="75">
+                            <menuItem title="Save Tournament" enabled="NO" keyEquivalent="s" id="75">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="362"/>
                                 </connections>
@@ -196,12 +196,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Edit" id="205">
                         <items>
-                            <menuItem title="Undo" keyEquivalent="z" id="207">
+                            <menuItem title="Undo" enabled="NO" keyEquivalent="z" id="207">
                                 <connections>
                                     <action selector="undo:" target="-1" id="223"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Redo" keyEquivalent="Z" id="215">
+                            <menuItem title="Redo" enabled="NO" keyEquivalent="Z" id="215">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="redo:" target="-1" id="231"/>
@@ -210,33 +210,33 @@
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Cut" keyEquivalent="x" id="199">
+                            <menuItem title="Cut" enabled="NO" keyEquivalent="x" id="199">
                                 <connections>
                                     <action selector="cut:" target="-1" id="228"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy" keyEquivalent="c" id="197">
+                            <menuItem title="Copy" enabled="NO" keyEquivalent="c" id="197">
                                 <connections>
                                     <action selector="copy:" target="-1" id="224"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste" keyEquivalent="v" id="203">
+                            <menuItem title="Paste" enabled="NO" keyEquivalent="v" id="203">
                                 <connections>
                                     <action selector="paste:" target="-1" id="226"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste and Match Style" keyEquivalent="V" id="470">
+                            <menuItem title="Paste and Match Style" enabled="NO" keyEquivalent="V" id="470">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="pasteAsPlainText:" target="-1" id="471"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Delete" id="202">
+                            <menuItem title="Delete" enabled="NO" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select All" keyEquivalent="a" id="198">
+                            <menuItem title="Select All" enabled="NO" keyEquivalent="a" id="198">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="232"/>
                                 </connections>
@@ -244,37 +244,37 @@
                             <menuItem isSeparatorItem="YES" id="214">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Find" id="218">
+                            <menuItem title="Find" enabled="NO" id="218">
                                 <menu key="submenu" title="Find" id="220">
                                     <items>
-                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="209">
+                                        <menuItem title="Find…" tag="1" enabled="NO" keyEquivalent="f" id="209">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="241"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="532">
+                                        <menuItem title="Find and Replace…" tag="12" enabled="NO" keyEquivalent="f" id="532">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="533"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="208">
+                                        <menuItem title="Find Next" tag="2" enabled="NO" keyEquivalent="g" id="208">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="467"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="213">
+                                        <menuItem title="Find Previous" tag="3" enabled="NO" keyEquivalent="G" id="213">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="468"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="221">
+                                        <menuItem title="Use Selection for Find" tag="7" enabled="NO" keyEquivalent="e" id="221">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="469"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="210">
+                                        <menuItem title="Jump to Selection" enabled="NO" keyEquivalent="j" id="210">
                                             <connections>
                                                 <action selector="centerSelectionInVisibleArea:" target="-1" id="245"/>
                                             </connections>
@@ -289,31 +289,22 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Window" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Main Menu" id="cnr-XA-kyQ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="rfc-PA-t3b" id="Uyi-5e-vt7"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Bracket" id="QwW-8l-yQZ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="9uF-4p-dRK" id="x9a-0N-0S5"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Schedule" id="afD-Al-W1P">
+                            <menuItem title="Main Menu" enabled="NO" id="cnr-XA-kyQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
-                            <menuItem title="Score Sheets" id="kX6-oC-HSs">
+                            <menuItem title="Bracket" enabled="NO" id="QwW-8l-yQZ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
-                            <menuItem title="Staff" id="UzP-OH-Xi8">
+                            <menuItem title="Schedule" enabled="NO" id="afD-Al-W1P">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="I86-mc-Rjy" id="pFd-iE-UnD"/>
-                                </connections>
                             </menuItem>
-                            <menuItem title="Fields" id="cHK-im-LqU">
+                            <menuItem title="Score Sheets" enabled="NO" id="kX6-oC-HSs">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Staff" enabled="NO" id="UzP-OH-Xi8">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Fields" enabled="NO" id="cHK-im-LqU">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem title="Snitchkeeper" id="5M0-c7-cXg">
@@ -322,7 +313,7 @@
                                     <action selector="makeKeyAndOrderFront:" target="TAN-M7-QIC" id="K2U-nw-XDl"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Social" id="ACd-4l-elj">
+                            <menuItem title="Social" enabled="NO" id="ACd-4l-elj">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="oiC-by-qmi"/>
@@ -346,7 +337,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="492">
                         <items>
-                            <menuItem title="Snitchy Tools Help" keyEquivalent="?" id="493">
+                            <menuItem title="Snitchy Tools Help" enabled="NO" keyEquivalent="?" id="493">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="494"/>
                                 </connections>
@@ -356,7 +347,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Main Menu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="rfc-PA-t3b">
+        <window title="Main Menu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="rfc-PA-t3b">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="407" height="257"/>
@@ -742,11 +733,11 @@
                 </subviews>
             </view>
         </window>
-        <window title="Snitchkeeper - T1 (00) v T2 (00)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="TAN-M7-QIC">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="Snitchkeeper - T1 (00) v T2 (00)" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="TAN-M7-QIC">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="1030" height="875"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
             <view key="contentView" id="BbG-Dt-zt4">
                 <rect key="frame" x="0.0" y="0.0" width="1030" height="875"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -765,16 +756,14 @@
                     <popUpButton verticalHuggingPriority="750" id="hbZ-uf-Abd">
                         <rect key="frame" x="81" y="721" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" alternateTitle="Team 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="GKV-q8-Iwm">
+                        <popUpButtonCell key="cell" type="push" alternateTitle="Team 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="GKV-q8-Iwm">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Oiv-Tg-Cpc">
                                 <items>
-                                    <menuItem title="Silicon Valley Skrewts" id="5FB-xp-m5t">
+                                    <menuItem title="Add Team" id="5FB-xp-m5t">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="NYU Nundu" id="dOx-bx-qwi"/>
-                                    <menuItem title="Queerditch Marsh Sporting Club" id="qao-ek-xbH"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -791,16 +780,14 @@
                     <popUpButton verticalHuggingPriority="750" id="oAg-Qn-Rom">
                         <rect key="frame" x="714" y="721" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="aOG-gJ-UYt">
+                        <popUpButtonCell key="cell" type="push" title="Add Team" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cGw-23-78o" id="aOG-gJ-UYt">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Sa7-fl-FZs">
                                 <items>
-                                    <menuItem title="Silicon Valley Skrewts" id="cGw-23-78o">
+                                    <menuItem title="Add Team" id="cGw-23-78o">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="NYU Nundu" id="rUG-M4-ThS"/>
-                                    <menuItem title="Queerditch Marsh Sporting Club" id="19u-Uw-XWO"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -826,14 +813,12 @@
                     <popUpButton verticalHuggingPriority="750" id="Pke-Qb-tLN">
                         <rect key="frame" x="391" y="694" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bwy-d8-yQl">
+                        <popUpButtonCell key="cell" type="push" title="Not available in Alpha" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HnJ-7e-L3j" id="bwy-d8-yQl">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Ykz-d8-4LI">
                                 <items>
-                                    <menuItem title="Item 1" image="snitchIcon" id="HnJ-7e-L3j"/>
-                                    <menuItem title="Item 2" id="PhY-Z9-F49"/>
-                                    <menuItem title="Item 3" id="X3q-U2-PJH"/>
+                                    <menuItem title="Not available in Alpha" image="snitchIcon" id="HnJ-7e-L3j"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -914,7 +899,7 @@
                     <button verticalHuggingPriority="750" id="yjz-Q1-Y6J">
                         <rect key="frame" x="393" y="20" width="175" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="squareTextured" title="Add Penalty / Injury" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
+                        <buttonCell key="cell" type="squareTextured" title="Add Penalty / Injury" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtZ-vJ-nH0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -934,7 +919,7 @@
                     <button verticalHuggingPriority="750" id="U25-xa-re8">
                         <rect key="frame" x="441" y="373" width="78" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3kC-F9-E8N">
+                        <buttonCell key="cell" type="roundRect" title="Start Game" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3kC-F9-E8N">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
@@ -945,7 +930,7 @@
                     <button verticalHuggingPriority="750" id="IO8-HJ-1sf">
                         <rect key="frame" x="447" y="347" width="67" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wNN-Ao-yhk">
+                        <buttonCell key="cell" type="roundRect" title="Stop Play" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wNN-Ao-yhk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
@@ -956,7 +941,7 @@
                     <button verticalHuggingPriority="750" id="PqD-Wk-G4l">
                         <rect key="frame" x="404" y="321" width="152" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xAZ-hZ-yLJ">
+                        <buttonCell key="cell" type="roundRect" title="End Game (Good Catch)" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xAZ-hZ-yLJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
@@ -1357,7 +1342,7 @@
                     <button verticalHuggingPriority="750" id="mHo-JE-evA">
                         <rect key="frame" x="14" y="16" width="232" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Commit Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0WI-oy-TiH">
+                        <buttonCell key="cell" type="push" title="Commit Game" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0WI-oy-TiH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -1376,17 +1361,24 @@
                             <action selector="makeKeyAndOrderFront:" target="HOv-TF-4Jj" id="ljs-LG-olP"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="4Jz-ay-eq8">
-                        <rect key="frame" x="407" y="831" width="138" height="32"/>
+                    <textField verticalHuggingPriority="750" id="Mo7-Xo-5rk">
+                        <rect key="frame" x="710" y="717" width="191" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Play Clock Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SDc-qY-gZF">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Wjo-Op-ARP">
                             <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="startPlayClock:" target="M2R-xQ-C98" id="DxJ-qh-FoT"/>
-                        </connections>
-                    </button>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="Vhr-nM-Jmn">
+                        <rect key="frame" x="75" y="717" width="191" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="9Kb-kG-Sp6">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>
@@ -1394,7 +1386,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="136" y="163" width="544" height="691"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
             <view key="contentView" id="AsX-Df-Knt">
                 <rect key="frame" x="0.0" y="0.0" width="544" height="691"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1443,7 +1435,7 @@
         <window title="Snitchkeeper Spectator" allowsToolTipsWhenApplicationIsInactive="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="HOv-TF-4Jj" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <rect key="contentRect" x="136" y="163" width="641" height="302"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
             <value key="minSize" type="size" width="641" height="302"/>
             <view key="contentView" wantsLayer="YES" id="qFz-W4-CJp">
                 <rect key="frame" x="0.0" y="0.0" width="641" height="302"/>

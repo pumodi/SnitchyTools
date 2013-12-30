@@ -67,14 +67,19 @@
     IBOutlet NSTextField *t2Name;
     IBOutlet NSTextField *clockWinPlayClock;
     IBOutlet NSTextField *clockWinSeekerFloor;
+    IBOutlet NSTextField *teamOneTextField;
+    IBOutlet NSTextField *teamTwoTextField;
+    IBOutlet NSTextField *clockWinSeekerFloorTitle;
     NSTimer *playClockTimer;
     NSTimer *seekerFloorTimer;
     NSTimer *otClockTimer;
     NSTimer *sdClockTimer;
+    NSTimer *otSeekerFloorTimer;
     NSDate *startDate;
     NSDate *seekerDate;
     NSDate *otDate;
     NSDate *sdDate;
+    NSDate *otSeekerDate;
     
 }
 

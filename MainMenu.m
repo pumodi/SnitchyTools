@@ -17,9 +17,14 @@
 
 - (IBAction)openWindow:(id)sender {
     if (buttonSnitchkeeper) {
+        
         [snitchKeeper makeKeyAndOrderFront:(self)];
         [mainMenu close];
     }
+}
+
+- (IBAction)newTournament:(id)sender {
+
 }
 
 

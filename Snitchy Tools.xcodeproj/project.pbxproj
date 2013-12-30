@@ -24,6 +24,8 @@
 		41DC98B018459A2B00D6E13C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98AE18459A2B00D6E13C /* InfoPlist.strings */; };
 		41DC98B218459A2B00D6E13C /* Snitchy_ToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */; };
 		41DC98C018459CC400D6E13C /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DC98BF18459CC400D6E13C /* lock.png */; };
+		41F0A4C518712E76004A0B09 /* Snitchkeeper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F0A4C418712E76004A0B09 /* Snitchkeeper.xib */; };
+		41F0A4CF18713977004A0B09 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 41F0A4CE18713977004A0B09 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		41DC98AF18459A2B00D6E13C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41DC98B118459A2B00D6E13C /* Snitchy_ToolsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Snitchy_ToolsTests.m; sourceTree = "<group>"; };
 		41DC98BF18459CC400D6E13C /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		41F0A4C418712E76004A0B09 /* Snitchkeeper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Snitchkeeper.xib; path = ../Snitchkeeper.xib; sourceTree = "<group>"; };
+		41F0A4CE18713977004A0B09 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				3548C3B51846962E0090FF4F /* Snitchkeeper.h */,
 				3548C3B61846962E0090FF4F /* Snitchkeeper.m */,
 				41DC989C18459A2B00D6E13C /* MainMenu.xib */,
+				41F0A4C418712E76004A0B09 /* Snitchkeeper.xib */,
+				41F0A4CE18713977004A0B09 /* README.md */,
 				41DC988B18459A2B00D6E13C /* Supporting Files */,
 			);
 			path = "Snitchy Tools";
@@ -266,6 +272,8 @@
 			files = (
 				41DC988F18459A2B00D6E13C /* InfoPlist.strings in Resources */,
 				41DC989518459A2B00D6E13C /* Credits.rtf in Resources */,
+				41F0A4C518712E76004A0B09 /* Snitchkeeper.xib in Resources */,
+				41F0A4CF18713977004A0B09 /* README.md in Resources */,
 				41DC989E18459A2B00D6E13C /* MainMenu.xib in Resources */,
 				41DC98C018459CC400D6E13C /* lock.png in Resources */,
 				41CC9081185C2DB800CB1008 /* snitchIcon.png in Resources */,

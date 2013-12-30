@@ -12,109 +12,15 @@
 @implementation Snitchkeeper
 @synthesize playClock;
 
+int t1ScoreCurrent, t1ScoreOTCurrent, t1ScoreSDCurrent, t2ScoreCurrent, t2ScoreOTCurrent, t2ScoreSDCurrent, t1ScoreWindow, t2ScoreWindow = 0;
 BOOL snitchPitchTrue = FALSE;
-int currentTime = 0;
-int hours, minutes, seconds = 0;
-int t1ScoreCurrent, t1ScoreOTCurrent, t1ScoreSDCurrent, t2ScoreCurrent, t2ScoreOTCurrent, t2ScoreSDCurrent = 0;
-int t1ScoreWindow = 0;
-int t2ScoreWindow = 0;
-BOOL snitchCaught = FALSE;
-BOOL snitchCaughtOT = FALSE;
-BOOL snitchCaughtSD = FALSE;
+BOOL clockHasRun, otClockHasRun, sdClockHasRun, seekerClockHasRun, otSeekerClockHasRun, seekerFloorUp, snitchCaughtSD, snitchCaughtOT, snitchCaught = FALSE;
 NSString *gameState = @"";
+NSString *teamOneString = @"Team One";
+NSString *teamTwoString = @"Team Two";
+NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloorTime, *stopDateOTSeekerFloorTime, *snitchHasReturnedDate, *clearanceDate;
 
-- (void)startPlayClock {
-    startDate = [NSDate date];
-    
-    playClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
-                                                 target:self
-                                               selector:@selector(updateTimerRegTime)
-                                               userInfo:nil
-                                                repeats:YES];
-}
-
-- (void)startOTClock {
-    otDate = [NSDate date];
-    
-    otClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
-                                                      target:self
-                                                    selector:@selector(updateTimerOTTime)
-                                                    userInfo:nil
-                                                     repeats:YES];
-}
-
-- (void)startSDClock {
-    sdDate = [NSDate date];
-    
-    sdClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
-                                                    target:self
-                                                  selector:@selector(updateTimerSDTime)
-                                                  userInfo:nil
-                                                   repeats:YES];
-}
-
-- (void)startSeekerFloor {
-    seekerDate = [NSDate date];
-    
-    seekerFloorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                    target:self
-                                                  selector:@selector(updateTimerSeekerFloor)
-                                                  userInfo:nil
-                                                   repeats:YES];
-}
-
-- (void)updateTimerRegTime {
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:startDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss.SS"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    NSString *timeString = [dateFormatter stringFromDate:timerDate];
-    clockWinPlayClock.stringValue = timeString;
-    playClock.stringValue = timeString;
-}
-
-- (void)updateTimerOTTime {
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:otDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss.SS"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    NSString *timeString = [dateFormatter stringFromDate:timerDate];
-    clockWinPlayClock.stringValue = timeString;
-    otClock.stringValue = timeString;
-}
-
-- (void)updateTimerSDTime {
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:sdDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss.SS"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    NSString *timeString = [dateFormatter stringFromDate:timerDate];
-    clockWinPlayClock.stringValue = timeString;
-    sdClock.stringValue = timeString;
-}
-
-- (void)updateTimerSeekerFloor {
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:seekerDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss.SS"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    NSString *timeString = [dateFormatter stringFromDate:timerDate];
-    clockWinPlayClock.stringValue = timeString;
-    clockWinSeekerFloor.stringValue = timeString;
-    seekerFloor.stringValue = timeString;
-}
+// This IBAction method receives user input and updates scores
 
 - (IBAction)scoreManager:(id)sender {
     if ([gameState isEqual: @"regTime"]) {
@@ -247,11 +153,42 @@ NSString *gameState = @"";
     [self updateWindowScore];
 }
 
+// This IBAction takes user input to delegate state management and play clock management.
+
 - (IBAction)buttonStateManager:(id)sender {
+    [self regTimeStateManager];
+    [self otStateManager];
+    [self sdStateManager];
+    if (commitGame.state == NSOnState) {
+        [self onCommitGamePressed];
+        commitGame.state = NSOffState;
+    }
+    else {
+        [self updateWindowScore];
+    }
+    [self updateWindowScore];
+}
+
+// This IBAction takes user input and signals snitchkeeper that the snitch has returned to the field.
+
+- (IBAction)onSnitchPitchPressed:(id)sender {
+    if(!snitchPitchTrue) {
+        [snitchPitch setEnabled:NO];
+        snitchPitchTrue = YES;
+        snitchHasReturnedDate = [NSDate dateWithTimeInterval:0 sinceDate:startDate];
+    }
+    else {
+        snitchPitchTrue = NO;
+    }
+    
+}
+
+// These three functions manage button states in conjuction with the buttonStateManager
+
+- (void)regTimeStateManager {
     if(startGame.state == NSOnState) {
         [self onStartPressed];
         startGame.state = NSOffState;
-        [clockWinRegTimeIndic setHidden:NO];
     }
     else if(stopPlay.state == NSOnState) {
         [self onStopPressed];
@@ -264,14 +201,13 @@ NSString *gameState = @"";
     else if (endGame.state == NSOnState) {
         [self onEndGamePressed];
         endGame.state = NSOffState;
-        [clockWinRegTimeIndic setHidden:YES];
     }
-    else if (startGameOT.state == NSOnState) {
+}
+
+- (void)otStateManager {
+    if (startGameOT.state == NSOnState) {
         [self onStartGameOTPressed];
         startGameOT.state = NSOffState;
-        [clockWinT1Score setIntegerValue:00];
-        [clockWinT2Score setIntegerValue:00];
-        [clockWinOverTimeIndic setHidden:NO];
     }
     else if(stopPlayOT.state == NSOnState) {
         [self onStopPlayOTPressed];
@@ -281,13 +217,14 @@ NSString *gameState = @"";
         [self onEndGameOTPressed];
         endGameOT.state = NSOffState;
         [clockWinOverTimeIndic setHidden:YES];
+        [commitGame setEnabled:YES];
     }
-    else if (startGameSD.state == NSOnState) {
+}
+
+- (void)sdStateManager {
+    if (startGameSD.state == NSOnState) {
         [self onStartGameSDPressed];
         startGameSD.state = NSOffState;
-        [clockWinT1Score setIntegerValue:00];
-        [clockWinT2Score setIntegerValue:00];
-        [clockWinSDTimeIndic setHidden:NO];
     }
     else if (stopPlaySD.state == NSOnState) {
         [self onStopPlaySDPressed];
@@ -296,28 +233,202 @@ NSString *gameState = @"";
     else if (endGameSD.state == NSOnState) {
         [self onEndGameSDPressed];
         endGameSD.state = NSOffState;
-        [clockWinSDTimeIndic setHidden:YES];
     }
-    else if (commitGame.state == NSOnState) {
-        [self onCommitGamePressed];
-        commitGame.state = NSOffState;
-    }
-    else {
-        [self updateWindowScore];
-    }
-    [self updateWindowScore];
 }
 
-- (IBAction)onSnitchPitchPressed:(id)sender {
-    if(!snitchPitchTrue) {
-        [snitchPitch setEnabled:NO];
-        snitchPitchTrue = YES;
+// These five methods provide NSTimers for the updateTimer functions
+
+- (void)startPlayClock {
+    if (!clockHasRun) {
+        clockHasRun = TRUE;
+        startDate = [NSDate date];
     }
     else {
-        snitchPitchTrue = NO;
+        startDate = stopDateRegTime;
+    }
+    playClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
+                                                 target:self
+                                                selector:@selector(updateTimerRegTime:)
+                                               userInfo:nil
+                                                repeats:YES];
+}
+
+- (void)startOTClock {
+    if (!otClockHasRun) {
+        otClockHasRun = TRUE;
+        otDate = [NSDate date];
+    }
+    else {
+        otDate = stopDateOTTime;
     }
     
+    otClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
+                                                      target:self
+                                                  selector:@selector(updateTimerOTTime:)
+                                                    userInfo:nil
+                                                     repeats:YES];
 }
+
+- (void)startSDClock {
+    if (!sdClockHasRun) {
+        sdDate = [NSDate date];
+        sdClockHasRun = TRUE;
+    }
+    else {
+        sdDate = stopDateSDTime;
+    }
+    
+    sdClockTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
+                                                    target:self
+                                                  selector:@selector(updateTimerSDTime:)
+                                                  userInfo:nil
+                                                   repeats:YES];
+}
+
+- (void)startSeekerFloor {
+    if (!seekerClockHasRun) {
+        seekerDate = [NSDate date];
+        seekerClockHasRun = TRUE;
+    }
+    else {
+        seekerDate = stopDateSeekerFloorTime;
+    }
+    
+    seekerFloorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                        target:self
+                                                      selector:@selector(updateTimerSeekerFloor:)
+                                                      userInfo:nil
+                                                       repeats:YES];
+}
+
+- (void)startOTSeekerFloor {
+    if (!otSeekerClockHasRun) {
+        otSeekerDate = [NSDate date];
+        otSeekerClockHasRun = TRUE;
+    }
+    else {
+        otSeekerDate = stopDateOTSeekerFloorTime;
+    }
+    
+    otSeekerFloorTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                        target:self
+                                                        selector:@selector(updateTimerOTSeekerFloor:)
+                                                      userInfo:nil
+                                                       repeats:YES];
+}
+
+// These five functions invalidate (stop) play clocks and store the time as a variable to resume them later on
+
+- (void)playClockPause {
+    stopDateRegTime = [NSDate dateWithTimeInterval:0 sinceDate:startDate];
+    clockHasRun = TRUE;
+    [playClockTimer invalidate];
+}
+
+- (void)otClockPause {
+    stopDateOTTime = [NSDate dateWithTimeInterval:0 sinceDate:otDate];
+    otClockHasRun = TRUE;
+    [otClockTimer invalidate];
+}
+
+- (void)sdClockPause {
+    stopDateSDTime = [NSDate dateWithTimeInterval:0 sinceDate:sdDate];
+    sdClockHasRun = TRUE;
+    [sdClockTimer invalidate];
+}
+
+- (void)seekerClockPause {
+    stopDateSeekerFloorTime = [NSDate dateWithTimeInterval:0 sinceDate:seekerDate];
+    seekerClockHasRun = TRUE;
+    [seekerFloorTimer invalidate];
+}
+
+- (void)otSeekerClockPause {
+    stopDateOTSeekerFloorTime = [NSDate dateWithTimeInterval:0 sinceDate:otSeekerDate];
+    otSeekerClockHasRun = TRUE;
+    [otSeekerFloorTimer invalidate];
+}
+
+- (void)pauseAllClocks {
+    [self playClockPause];
+    [self otClockPause];
+    [self sdClockPause];
+    [self seekerClockPause];
+    [self otSeekerClockPause];
+}
+
+// These five methods provide an interface for the timers and their associated NSTextFields
+
+- (void)updateTimerRegTime:(NSTimer *)playClockTimer {
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:startDate];
+    NSDate *timerRegDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss.SS"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    NSString *timeString = [dateFormatter stringFromDate:timerRegDate];
+    clockWinPlayClock.stringValue = timeString;
+    playClock.stringValue = timeString;
+}
+
+- (void)updateTimerOTTime:(NSTimer *)otClockTimer {
+    NSDate *referenceTime = [NSDate date];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:05:01 +0000"];
+    NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:otDate];
+    NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss.SS"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-0.0]];
+    NSString *timeString = [dateFormatter stringFromDate:currentTime];
+    clockWinPlayClock.stringValue = timeString;
+    otClock.stringValue = timeString;
+}
+
+- (void)updateTimerSDTime:(NSTimer *)sdClockTimer {
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:sdDate];
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss.SS"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    NSString *timeString = [dateFormatter stringFromDate:timerDate];
+    clockWinPlayClock.stringValue = timeString;
+    sdClock.stringValue = timeString;
+}
+
+- (void)updateTimerSeekerFloor:(NSTimer *)seekerFloorTimer {
+    NSDate *referenceTime = [NSDate date];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:10:01 +0000"];
+    NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:seekerDate];
+    NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-0.0]];
+    NSString *timeString = [dateFormatter stringFromDate:currentTime];
+    clockWinSeekerFloor.stringValue = timeString;
+    seekerFloor.stringValue = timeString;
+}
+
+- (void)updateTimerOTSeekerFloor:(NSTimer *)otSeekerFloorTimer {
+    NSDate *referenceTime = [NSDate date];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:00:31 +0000"];
+    NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:otSeekerDate];
+    NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-0.0]];
+    NSString *timeString = [dateFormatter stringFromDate:currentTime];
+    clockWinSeekerFloor.stringValue = timeString;
+    seekerFloor.stringValue = timeString;
+}
+
+
+// These three functions handle pushing scores/team names to Window Title & Spectator
 
 - (void)scoreFieldsUpdate {
     if ([gameState  isEqual: @"regTime"]) {
@@ -341,11 +452,64 @@ NSString *gameState = @"";
 }
 
 - (void)updateTeams:(id)sender {
-    NSString *teamOneString = teamOne.selectedItem.title;
-    NSString *teamTwoString = teamTwo.selectedItem.title;
+    if ([teamOne.selectedItem.title isEqualTo:@"Add Team"]) {
+        teamOneString = teamOneTextField.stringValue;
+        teamTwoString = teamTwoTextField.stringValue;
+    }
+    else {
+        teamOneString = teamOne.selectedItem.title;
+        teamTwoString = teamTwo.selectedItem.title;
+    }
     t1Name.stringValue = teamOneString;
     t2Name.stringValue = teamTwoString;
 }
+
+- (void)updateWindowScore {
+    if ([teamOne.selectedItem.title isEqualTo:@"Add Team"]) {
+        teamOneString = teamOneTextField.stringValue;
+        teamTwoString = teamTwoTextField.stringValue;
+    }
+    else {
+        teamOneString = teamOne.selectedItem.title;
+        teamTwoString = teamTwo.selectedItem.title;
+    }
+    if ([gameState  isEqual: @"regTime"]) {
+        t1ScoreWindow = t1ScoreCurrent;
+        t2ScoreWindow = t2ScoreCurrent;
+    }
+    else if ([gameState isEqual: @"oTime"]) {
+        t1ScoreWindow = t1ScoreOTCurrent;
+        t2ScoreWindow = t2ScoreOTCurrent;
+    }
+    else if ([gameState isEqual: @"sdTime"]) {
+        t1ScoreWindow = t1ScoreSDCurrent;
+        t2ScoreWindow = t2ScoreSDCurrent;
+    }
+    
+    NSString *scoreWindowA = [NSString stringWithFormat:@"%d", t1ScoreWindow];
+    NSString *scoreWindowb = [NSString stringWithFormat:@"%d", t2ScoreWindow];
+    NSMutableString *windowString = [NSMutableString stringWithFormat:@"Snitchkeeper - %@", teamOneString];
+    if (((snitchCatchT1.state == NSOnState && ([gameState isEqual:@"regTime"])) || ((snitchCatchT1OT.state == NSOnState && ([gameState isEqual:@"oTime"])) || (snitchCatchT1SD.state == NSOnState && ([gameState isEqual:@"sdTime"]))))) {
+        [windowString appendFormat:@" (*%@",scoreWindowA];
+    }
+    else {
+        [windowString appendFormat:@" (%@",scoreWindowA];
+    }
+    [windowString appendFormat:@") %@", teamTwoString];
+    if (((snitchCatchT2.state == NSOnState && ([gameState isEqual:@"regTime"])) || ((snitchCatchT2OT.state == NSOnState && ([gameState isEqual:@"oTime"])) || (snitchCatchT2SD.state == NSOnState && ([gameState isEqual:@"sdTime"]))))) {
+        [windowString appendFormat:@" (*%@", scoreWindowb];
+    }
+    else {
+        [windowString appendFormat:@" (%@", scoreWindowb];
+    }
+    [windowString appendString:@") "];
+    snitchKeeper.title = windowString;
+    spectator.title = windowString;
+    clockWinT1.stringValue = teamOneString;
+    clockWinT2.stringValue = teamTwoString;
+}
+
+// These four functions disable groups of buttons depending on game state
 
 - (void)teamSelectDisabled {
     [snitch setEnabled:NO];
@@ -365,6 +529,7 @@ NSString *gameState = @"";
     [remGoalT2 setEnabled:NO];
     [snitchCatchT1 setEnabled:NO];
     [snitchCatchT2 setEnabled:NO];
+    startDate = nil;
 }
 
 - (void)otDisabled {
@@ -391,21 +556,23 @@ NSString *gameState = @"";
     [snitchCatchT2SD setEnabled:NO];
 }
 
+// These 11 methods tell Snitchkeeper what to do when play clock control buttons are pressed. (One method per button)
+
 - (void)onStartPressed {
     [startGame setEnabled:NO];
+    [clockWinRegTimeIndic setHidden:NO];
     [stopPlay setEnabled:YES];
     [stopPlaySeekerContinue setEnabled:YES];
     [endGame setEnabled:YES];
-    [self otDisabled];
-    [self sdDisabled];
-    [self teamSelectDisabled];
-    gameState = @"regTime";
     [addGoalT1 setEnabled:YES];
     [addGoalT2 setEnabled:YES];
     [remGoalT2 setEnabled:YES];
     [remGoalT1 setEnabled:YES];
     [snitchCatchT1 setEnabled:YES];
     [snitchCatchT2 setEnabled:YES];
+    if (!clockHasRun) {
+        gameState = @"regTime";
+    }
     if (snitchPitchTrue) {
         [snitchPitch setEnabled:NO];
     }
@@ -414,6 +581,9 @@ NSString *gameState = @"";
     }
     [self startPlayClock];
     [self startSeekerFloor];
+    [self otDisabled];
+    [self sdDisabled];
+    [self teamSelectDisabled];
 }
 
 - (void)onStopPressed {
@@ -424,6 +594,8 @@ NSString *gameState = @"";
     [endGame setEnabled:YES];
     [self otDisabled];
     [self sdDisabled];
+    [self playClockPause];
+    [self seekerClockPause];
 }
 
 - (void)onStopContinueSeekerFloorPressed {
@@ -435,6 +607,7 @@ NSString *gameState = @"";
     [endGame setEnabled:NO];
     [self otDisabled];
     [self sdDisabled];
+    [self playClockPause];
 }
 
 - (void)onEndGamePressed {
@@ -445,24 +618,33 @@ NSString *gameState = @"";
     [snitchPitch setEnabled:NO];
     [endGame setEnabled:NO];
     [startGameOT setEnabled:YES];
+    [clockWinRegTimeIndic setHidden:YES];
+    [commitGame setEnabled:YES];
     [self sdDisabled];
+    [self playClockPause];
+    [self seekerClockPause];
 }
 
 - (void)onStartGameOTPressed {
-    // Stops clock, enables SD buttons
     [startGameOT setEnabled:NO];
     [stopPlayOT setEnabled:YES];
     [endGameOT setEnabled:YES];
-    [self regDisabled];
-    [self sdDisabled];
-    gameState = @"oTime";
+    if (!otClockHasRun) {
+        gameState = @"oTime";
+        [self regDisabled];
+        [self sdDisabled];
+        [clockWinT1Score setIntegerValue:00];
+        [clockWinT2Score setIntegerValue:00];
+    }
     [addGoalT1OT setEnabled:YES];
     [addGoalT2OT setEnabled:YES];
     [remGoalT2OT setEnabled:YES];
     [remGoalT1OT setEnabled:YES];
     [snitchCatchT1OT setEnabled:YES];
     [snitchCatchT2OT setEnabled:YES];
+    [clockWinOverTimeIndic setHidden:NO];
     [self startOTClock];
+    [self startOTSeekerFloor];
 }
 
 - (void)onStopPlayOTPressed {
@@ -472,6 +654,8 @@ NSString *gameState = @"";
     [endGameOT setEnabled:YES];
     [self regDisabled];
     [self sdDisabled];
+    [self otClockPause];
+    [self otSeekerClockPause];
 }
 
 - (void)onEndGameOTPressed {
@@ -481,21 +665,30 @@ NSString *gameState = @"";
     [stopPlayOT setEnabled:NO];
     [endGameOT setEnabled:NO];
     [self regDisabled];
+    [self otClockPause];
+    [self otSeekerClockPause];
 }
 
 - (void)onStartGameSDPressed {
     [startGameSD setEnabled:NO];
     [stopPlaySD setEnabled:YES];
     [endGameSD setEnabled:YES];
-    [self regDisabled];
-    [self otDisabled];
-    gameState = @"sdTime";
+    if (!sdClockHasRun) {
+        gameState = @"sdTime";
+        [self regDisabled];
+        [self otDisabled];
+        [clockWinT1Score setIntegerValue:00];
+        [clockWinT2Score setIntegerValue:00];
+    }
     [addGoalT1SD setEnabled:YES];
     [addGoalT2SD setEnabled:YES];
     [remGoalT2SD setEnabled:YES];
     [remGoalT1SD setEnabled:YES];
     [snitchCatchT1SD setEnabled:YES];
     [snitchCatchT2SD setEnabled:YES];
+    [clockWinSeekerFloor setHidden:YES];
+    [clockWinSeekerFloorTitle setHidden:YES];
+    [clockWinSDTimeIndic setHidden:NO];
     [self startSDClock];
 }
 
@@ -505,57 +698,26 @@ NSString *gameState = @"";
     [endGameSD setEnabled:YES];
     [self regDisabled];
     [self otDisabled];
+    [self sdClockPause];
 }
 
 - (void)onEndGameSDPressed {
     [startGameSD setEnabled:YES];
     [stopPlaySD setEnabled:NO];
     [endGameSD setEnabled:NO];
+    [commitGame setEnabled:YES];
+    [clockWinSDTimeIndic setHidden:YES];
     [self regDisabled];
     [self otDisabled];
+    [self sdClockPause];
 }
 
 - (void)onCommitGamePressed {
     [self regDisabled];
     [self otDisabled];
     [self sdDisabled];
-}
-
-- (void)updateWindowScore {
-    NSString *teamOneString = teamOne.selectedItem.title;
-    NSString *teamTwoString = teamTwo.selectedItem.title;
-    if ([gameState  isEqual: @"regTime"]) {
-        t1ScoreWindow = t1ScoreCurrent;
-        t2ScoreWindow = t2ScoreCurrent;
-    }
-    else if ([gameState isEqual: @"oTime"]) {
-        t1ScoreWindow = t1ScoreOTCurrent;
-        t2ScoreWindow = t2ScoreOTCurrent;
-    }
-    else if ([gameState isEqual: @"sdTime"]) {
-        t1ScoreWindow = t1ScoreSDCurrent;
-        t2ScoreWindow = t2ScoreSDCurrent;
-    }
-    
-    NSString *scoreWindowA = [NSString stringWithFormat:@"%d", t1ScoreWindow];
-    NSString *scoreWindowb = [NSString stringWithFormat:@"%d", t2ScoreWindow];
-    NSMutableString *windowString = [NSMutableString stringWithFormat:@"Snitchkeeper - %@", teamOneString];
-    if (((snitchCatchT1.state == NSOnState && ([gameState isEqual:@"regTime"])) || ((snitchCatchT1OT.state == NSOnState && ([gameState isEqual:@"oTime"])) || (snitchCatchT1SD.state == NSOnState && ([gameState isEqual:@"sdTime"]))))) {
-        [windowString appendFormat:@" (*%@",scoreWindowA];
-    }
-    else {
-    [windowString appendFormat:@" (%@",scoreWindowA];
-    }
-    [windowString appendFormat:@") %@", teamTwoString];
-    if (((snitchCatchT1.state == NSOnState && ([gameState isEqual:@"regTime"])) || ((snitchCatchT1OT.state == NSOnState && ([gameState isEqual:@"oTime"])) || (snitchCatchT1SD.state == NSOnState && ([gameState isEqual:@"sdTime"]))))) {
-    [windowString appendFormat:@" (*%@", scoreWindowb];
-    }
-    else {
-        [windowString appendFormat:@" (%@", scoreWindowb];
-    }
-    [windowString appendString:@") "];
-    snitchKeeper.title = windowString;
-    spectator.title = windowString;
+    [self pauseAllClocks];
+    [commitGame setEnabled:NO];
 }
 
 @end
