@@ -7,14 +7,13 @@
 //
 
 #import "Snitchkeeper.h"
-#import "NSTimerController.h"
 
 @implementation Snitchkeeper
 @synthesize playClock;
 
 int t1ScoreCurrent, t1ScoreOTCurrent, t1ScoreSDCurrent, t2ScoreCurrent, t2ScoreOTCurrent, t2ScoreSDCurrent, t1ScoreWindow, t2ScoreWindow = 0;
 BOOL snitchPitchTrue = FALSE;
-BOOL clockHasRun, otClockHasRun, sdClockHasRun, seekerClockHasRun, otSeekerClockHasRun, seekerFloorUp, snitchCaughtSD, snitchCaughtOT, snitchCaught = FALSE;
+BOOL clockHasRun, otClockHasRun, sdClockHasRun, seekerClockHasRun, otSeekerClockHasRun, seekerFloorUp, snitchCaughtSD, snitchCaughtOT, snitchCaught, seekerRunning = FALSE;
 NSString *gameState = @"";
 NSString *teamOneString = @"Team One";
 NSString *teamTwoString = @"Team Two";
@@ -187,35 +186,35 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)regTimeStateManager {
     if(startGame.state == NSOnState) {
-        [self onStartPressed];
         startGame.state = NSOffState;
+        [self onStartPressed];
     }
     else if(stopPlay.state == NSOnState) {
-        [self onStopPressed];
         stopPlay.state = NSOffState;
+        [self onStopPressed];
     }
     else if(stopPlaySeekerContinue.state == NSOnState) {
-        [self onStopContinueSeekerFloorPressed];
         stopPlaySeekerContinue.state = NSOffState;
+        [self onStopContinueSeekerFloorPressed];
     }
     else if (endGame.state == NSOnState) {
-        [self onEndGamePressed];
         endGame.state = NSOffState;
+        [self onEndGamePressed];
     }
 }
 
 - (void)otStateManager {
     if (startGameOT.state == NSOnState) {
-        [self onStartGameOTPressed];
         startGameOT.state = NSOffState;
+        [self onStartGameOTPressed];
     }
     else if(stopPlayOT.state == NSOnState) {
-        [self onStopPlayOTPressed];
         stopPlayOT.state = NSOffState;
+        [self onStopPlayOTPressed];
     }
     else if (endGameOT.state == NSOnState) {
-        [self onEndGameOTPressed];
         endGameOT.state = NSOffState;
+        [self onEndGameOTPressed];
         [clockWinOverTimeIndic setHidden:YES];
         [commitGame setEnabled:YES];
     }
@@ -287,8 +286,8 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)startSeekerFloor {
     if (!seekerClockHasRun) {
-        seekerDate = [NSDate date];
         seekerClockHasRun = TRUE;
+        seekerDate = [NSDate date];
     }
     else {
         seekerDate = stopDateSeekerFloorTime;
@@ -321,31 +320,26 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)playClockPause {
     stopDateRegTime = [NSDate dateWithTimeInterval:0 sinceDate:startDate];
-    clockHasRun = TRUE;
     [playClockTimer invalidate];
 }
 
 - (void)otClockPause {
     stopDateOTTime = [NSDate dateWithTimeInterval:0 sinceDate:otDate];
-    otClockHasRun = TRUE;
     [otClockTimer invalidate];
 }
 
 - (void)sdClockPause {
     stopDateSDTime = [NSDate dateWithTimeInterval:0 sinceDate:sdDate];
-    sdClockHasRun = TRUE;
     [sdClockTimer invalidate];
 }
 
 - (void)seekerClockPause {
     stopDateSeekerFloorTime = [NSDate dateWithTimeInterval:0 sinceDate:seekerDate];
-    seekerClockHasRun = TRUE;
     [seekerFloorTimer invalidate];
 }
 
 - (void)otSeekerClockPause {
     stopDateOTSeekerFloorTime = [NSDate dateWithTimeInterval:0 sinceDate:otSeekerDate];
-    otSeekerClockHasRun = TRUE;
     [otSeekerFloorTimer invalidate];
 }
 
@@ -374,7 +368,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)updateTimerOTTime:(NSTimer *)otClockTimer {
     NSDate *referenceTime = [NSDate date];
-    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:05:01 +0000"];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"0000-00-00 00:05:00 +0000"];
     NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:otDate];
     NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
     
@@ -401,7 +395,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)updateTimerSeekerFloor:(NSTimer *)seekerFloorTimer {
     NSDate *referenceTime = [NSDate date];
-    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:10:01 +0000"];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"0000-00-00 00:10:01 +0000"];
     NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:seekerDate];
     NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
     
@@ -415,7 +409,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)updateTimerOTSeekerFloor:(NSTimer *)otSeekerFloorTimer {
     NSDate *referenceTime = [NSDate date];
-    NSDate *startTime = [NSDate dateWithString:(NSString *)@"2013-01-01 00:00:31 +0000"];
+    NSDate *startTime = [NSDate dateWithString:(NSString *)@"0000-00-00 00:00:30 +0000"];
     NSTimeInterval timeInterval = [referenceTime timeIntervalSinceDate:otSeekerDate];
     NSDate *currentTime = [NSDate dateWithTimeInterval:-timeInterval sinceDate:startTime];
     
@@ -424,7 +418,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-0.0]];
     NSString *timeString = [dateFormatter stringFromDate:currentTime];
     clockWinSeekerFloor.stringValue = timeString;
-    seekerFloor.stringValue = timeString;
+    otSeekerFloor.stringValue = timeString;
 }
 
 
@@ -432,22 +426,58 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)scoreFieldsUpdate {
     if ([gameState  isEqual: @"regTime"]) {
-        [t1Score setIntegerValue:t1ScoreCurrent];
-        [t2Score setIntegerValue:t2ScoreCurrent];
-        [clockWinT1Score setIntegerValue:t1ScoreCurrent];
-        [clockWinT2Score setIntegerValue:t2ScoreCurrent];
+        if (t1ScoreCurrent != 0) {
+            [t1Score setIntegerValue:t1ScoreCurrent];
+            [clockWinT1Score setIntegerValue:t1ScoreCurrent];
+        }
+        else if (t1ScoreCurrent == 0) {
+            [t1Score setStringValue:@"00"];
+            [clockWinT1Score setStringValue:@"00"];
+        }
+        if (t2ScoreCurrent != 0) {
+            [t2Score setIntegerValue:t2ScoreCurrent];
+            [clockWinT2Score setIntegerValue:t2ScoreCurrent];
+        }
+        else if (t2ScoreCurrent == 0) {
+            [t2Score setStringValue:@"00"];
+            [clockWinT2Score setStringValue:@"00"];
+        }
     }
     else if ([gameState  isEqual: @"oTime"]) {
-        [t1OTScore setIntegerValue:t1ScoreOTCurrent];
-        [t2OTScore setIntegerValue:t2ScoreOTCurrent];
-        [clockWinT1Score setIntegerValue:t1ScoreOTCurrent];
-        [clockWinT2Score setIntegerValue:t2ScoreOTCurrent];
+        if (t1ScoreOTCurrent != 0) {
+            [t1OTScore setIntegerValue:t1ScoreOTCurrent];
+            [clockWinT1Score setIntegerValue:t1ScoreOTCurrent];
+        }
+        else if (t1ScoreCurrent == 0) {
+            [t1OTScore setStringValue:@"00"];
+            [clockWinT1Score setStringValue:@"00"];
+        }
+        if (t2ScoreOTCurrent != 0) {
+            [t2OTScore setIntegerValue:t2ScoreOTCurrent];
+            [clockWinT2Score setIntegerValue:t2ScoreOTCurrent];
+        }
+        else if (t2ScoreOTCurrent == 0) {
+            [t2OTScore setStringValue:@"00"];
+            [clockWinT2Score setStringValue:@"00"];
+        }
     }
     else if ([gameState isEqual: @"sdTime"]) {
-        [t1SDScore setIntegerValue:t1ScoreSDCurrent];
-        [t2SDScore setIntegerValue:t2ScoreSDCurrent];
-        [clockWinT1Score setIntegerValue:t1ScoreSDCurrent];
-        [clockWinT2Score setIntegerValue:t2ScoreSDCurrent];
+        if (t1ScoreSDCurrent != 0) {
+            [t1SDScore setIntegerValue:t1ScoreSDCurrent];
+            [clockWinT1Score setIntegerValue:t1ScoreSDCurrent];
+        }
+        else if (t1ScoreSDCurrent == 0) {
+            [t1SDScore setStringValue:@"00"];
+            [clockWinT1Score setStringValue:@"00"];
+        }
+        if (t2ScoreSDCurrent != 0) {
+            [t2SDScore setIntegerValue:t2ScoreSDCurrent];
+            [clockWinT2Score setIntegerValue:t2ScoreSDCurrent];
+        }
+        else if (t2ScoreSDCurrent == 0) {
+            [t2SDScore setStringValue:@"00"];
+            [clockWinT2Score setStringValue:@"00"];
+        }
     }
 }
 
@@ -529,7 +559,6 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [remGoalT2 setEnabled:NO];
     [snitchCatchT1 setEnabled:NO];
     [snitchCatchT2 setEnabled:NO];
-    startDate = nil;
 }
 
 - (void)otDisabled {
@@ -558,6 +587,8 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 // These 11 methods tell Snitchkeeper what to do when play clock control buttons are pressed. (One method per button)
 
+// Regular Time
+
 - (void)onStartPressed {
     [startGame setEnabled:NO];
     [clockWinRegTimeIndic setHidden:NO];
@@ -570,8 +601,13 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [remGoalT1 setEnabled:YES];
     [snitchCatchT1 setEnabled:YES];
     [snitchCatchT2 setEnabled:YES];
+    [penalty setEnabled:YES];
     if (!clockHasRun) {
         gameState = @"regTime";
+        t1Score.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+        t2Score.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+        [clockWinT1Score setIntegerValue:00];
+        [clockWinT2Score setIntegerValue:00];
     }
     if (snitchPitchTrue) {
         [snitchPitch setEnabled:NO];
@@ -580,7 +616,13 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
         [snitchPitch setEnabled:YES];
     }
     [self startPlayClock];
-    [self startSeekerFloor];
+    if (!seekerRunning) {
+        [self startSeekerFloor];
+        seekerRunning = TRUE;
+    }
+    else {
+        seekerRunning = TRUE;
+    }
     [self otDisabled];
     [self sdDisabled];
     [self teamSelectDisabled];
@@ -596,6 +638,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [self sdDisabled];
     [self playClockPause];
     [self seekerClockPause];
+    seekerRunning = FALSE;
 }
 
 - (void)onStopContinueSeekerFloorPressed {
@@ -621,30 +664,43 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [clockWinRegTimeIndic setHidden:YES];
     [commitGame setEnabled:YES];
     [self sdDisabled];
-    [self playClockPause];
     [self seekerClockPause];
+    [self playClockPause];
+    seekerRunning = FALSE;
 }
+
+// OT
 
 - (void)onStartGameOTPressed {
     [startGameOT setEnabled:NO];
+    [clockWinOverTimeIndic setHidden:NO];
     [stopPlayOT setEnabled:YES];
     [endGameOT setEnabled:YES];
-    if (!otClockHasRun) {
-        gameState = @"oTime";
-        [self regDisabled];
-        [self sdDisabled];
-        [clockWinT1Score setIntegerValue:00];
-        [clockWinT2Score setIntegerValue:00];
-    }
     [addGoalT1OT setEnabled:YES];
     [addGoalT2OT setEnabled:YES];
     [remGoalT2OT setEnabled:YES];
     [remGoalT1OT setEnabled:YES];
     [snitchCatchT1OT setEnabled:YES];
     [snitchCatchT2OT setEnabled:YES];
-    [clockWinOverTimeIndic setHidden:NO];
+    if (!otClockHasRun) {
+        gameState = @"oTime";
+        [self regDisabled];
+        [self sdDisabled];
+        [clockWinT1Score setIntegerValue:00];
+        [clockWinT2Score setIntegerValue:00];
+        t1OTScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+        t2OTScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+    }
     [self startOTClock];
-    [self startOTSeekerFloor];
+    if (!seekerRunning) {
+        [self startOTSeekerFloor];
+        seekerRunning = TRUE;
+    }
+    else {
+        seekerRunning = TRUE;
+    }
+    [self regDisabled];
+    [self sdDisabled];
 }
 
 - (void)onStopPlayOTPressed {
@@ -656,6 +712,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [self sdDisabled];
     [self otClockPause];
     [self otSeekerClockPause];
+    seekerRunning = FALSE;
 }
 
 - (void)onEndGameOTPressed {
@@ -667,19 +724,15 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [self regDisabled];
     [self otClockPause];
     [self otSeekerClockPause];
+    seekerRunning = FALSE;
 }
+
+// Sudden Death
 
 - (void)onStartGameSDPressed {
     [startGameSD setEnabled:NO];
     [stopPlaySD setEnabled:YES];
     [endGameSD setEnabled:YES];
-    if (!sdClockHasRun) {
-        gameState = @"sdTime";
-        [self regDisabled];
-        [self otDisabled];
-        [clockWinT1Score setIntegerValue:00];
-        [clockWinT2Score setIntegerValue:00];
-    }
     [addGoalT1SD setEnabled:YES];
     [addGoalT2SD setEnabled:YES];
     [remGoalT2SD setEnabled:YES];
@@ -689,6 +742,15 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [clockWinSeekerFloor setHidden:YES];
     [clockWinSeekerFloorTitle setHidden:YES];
     [clockWinSDTimeIndic setHidden:NO];
+    if (!sdClockHasRun) {
+        gameState = @"sdTime";
+        [self regDisabled];
+        [self otDisabled];
+        [clockWinT1Score setIntegerValue:00];
+        [clockWinT2Score setIntegerValue:00];
+        t1SDScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+        t2SDScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
+    }
     [self startSDClock];
 }
 
@@ -712,12 +774,29 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [self sdClockPause];
 }
 
+// Commit
+
 - (void)onCommitGamePressed {
     [self regDisabled];
     [self otDisabled];
     [self sdDisabled];
     [self pauseAllClocks];
     [commitGame setEnabled:NO];
+}
+
+- (IBAction)updateIP:(id)sender {
+    makeKeyAndOrderFront:(penaltyWindow);
+    [_ipTeamSelector setLabel:teamOneString forSegment:0];
+    [_ipTeamSelector setLabel:teamTwoString forSegment:1];
+    if ([gameState isEqualToString:@"regTime"]) {
+        _ipClockTime.stringValue = playClock.stringValue;
+    }
+    else if ([gameState isEqualToString:@"otTime"]) {
+        _ipClockTime.stringValue = otClock.stringValue;
+    }
+    else if ([gameState isEqualToString:@"sdTime"]) {
+        _ipClockTime.stringValue = sdClock.stringValue;
+    }
 }
 
 @end

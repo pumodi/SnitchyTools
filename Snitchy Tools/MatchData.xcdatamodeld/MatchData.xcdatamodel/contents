@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BaseMatchData" syncable="YES">
+        <attribute name="goalScoredAtTimeByTeam" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="injuryPenaltyAtTimeByPlayer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playClockTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playClockTimeOTEnd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playClockTimeSD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playClockTimeSnitchReturnsToPitch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scoreT1" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scoreT1SD" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scoreT2" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scoreT2OT" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scoreT2SD" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scoreT10T" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="snitchT1" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="snitchT1OT" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="snitchT1SD" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="snitchT2" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="snitchT2OT" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="snitchT2SD" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="team1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="team2" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BaseMatchData" positionX="160" positionY="192" width="128" height="345"/>
+    </elements>
+</model>

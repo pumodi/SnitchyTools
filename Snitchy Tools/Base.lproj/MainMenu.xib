@@ -41,6 +41,7 @@
                 <outlet property="endGameSD" destination="ocf-mG-AeH" id="sC2-aI-aJ8"/>
                 <outlet property="help" destination="bRo-fq-WK6" id="QCs-wf-yVO"/>
                 <outlet property="otClock" destination="6FB-vQ-wiL" id="qtM-fJ-NXn"/>
+                <outlet property="otSeekerFloor" destination="S37-an-h10" id="eg5-kG-bXE"/>
                 <outlet property="penalty" destination="yjz-Q1-Y6J" id="xF4-BQ-aRj"/>
                 <outlet property="playClock" destination="YgN-RP-70F" id="3jl-sV-lJf"/>
                 <outlet property="remGoalT1" destination="edK-4o-vZe" id="40q-nc-RuI"/>
@@ -780,12 +781,12 @@
                     <popUpButton verticalHuggingPriority="750" id="oAg-Qn-Rom">
                         <rect key="frame" x="714" y="721" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Add Team" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cGw-23-78o" id="aOG-gJ-UYt">
+                        <popUpButtonCell key="cell" type="push" title="Add Team" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cGw-23-78o" id="aOG-gJ-UYt">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Sa7-fl-FZs">
                                 <items>
-                                    <menuItem title="Add Team" id="cGw-23-78o">
+                                    <menuItem title="Add Team" state="on" id="cGw-23-78o">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
@@ -813,12 +814,12 @@
                     <popUpButton verticalHuggingPriority="750" id="Pke-Qb-tLN">
                         <rect key="frame" x="391" y="694" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Not available in Alpha" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HnJ-7e-L3j" id="bwy-d8-yQl">
+                        <popUpButtonCell key="cell" type="push" title="Not available in Alpha" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HnJ-7e-L3j" id="bwy-d8-yQl">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="Ykz-d8-4LI">
                                 <items>
-                                    <menuItem title="Not available in Alpha" image="snitchIcon" id="HnJ-7e-L3j"/>
+                                    <menuItem title="Not available in Alpha" state="on" image="snitchIcon" id="HnJ-7e-L3j"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -1377,6 +1378,24 @@
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="S37-an-h10">
+                        <rect key="frame" x="666" y="790" width="67" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="Dah-1j-nIb">
+                            <font key="font" metaFont="titleBar" size="12"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MFZ-qa-sau">
+                        <rect key="frame" x="661" y="807" width="76" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Seeker Floor" id="Yn1-cl-yCb">
+                            <font key="font" metaFont="system" size="8"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
