@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Snitchkeeper">
             <connections>
-                <outlet property="addGoalT1" destination="QXK-1o-dYo" id="cjL-ih-Dmy"/>
-                <outlet property="addGoalT1OT" destination="RN5-Kn-P8D" id="5if-nb-3ny"/>
-                <outlet property="addGoalT1SD" destination="yBM-CA-cXa" id="U7P-p9-ftD"/>
-                <outlet property="addGoalT2" destination="tkj-HT-MyA" id="peT-yH-dI9"/>
-                <outlet property="addGoalT2OT" destination="bbJ-gj-psz" id="43x-Xp-rXl"/>
-                <outlet property="addGoalT2SD" destination="Rdd-hf-rMt" id="lC0-cW-XmB"/>
                 <outlet property="ipCardValue" destination="aEZ-IN-Dlp" id="ez2-uE-O87"/>
                 <outlet property="ipClockTime" destination="m2x-jR-Y8u" id="TxZ-N5-0X3"/>
                 <outlet property="ipEventDescription" destination="ai8-38-qgE" id="2Jv-aO-mMk"/>
@@ -22,24 +16,6 @@
                 <outlet property="ipSubmitAtTime" destination="YsT-0c-6qV" id="yG8-Yz-PhJ"/>
                 <outlet property="ipTeamSelector" destination="5fS-cT-6hB" id="Zgp-ex-g2v"/>
                 <outlet property="penaltyWindow" destination="WnP-50-nb9" id="EbG-Wu-1xa"/>
-                <outlet property="remGoalT1" destination="1GK-O1-ScD" id="iUd-Ve-1ex"/>
-                <outlet property="remGoalT1OT" destination="aVX-yr-IGd" id="8MX-eK-HTd"/>
-                <outlet property="remGoalT1SD" destination="whb-8w-wII" id="vbm-N3-Qoj"/>
-                <outlet property="remGoalT2" destination="UiV-ge-xov" id="z7P-5D-1b1"/>
-                <outlet property="remGoalT2OT" destination="mLU-2K-hzq" id="E2B-Th-QAz"/>
-                <outlet property="remGoalT2SD" destination="mLU-2K-hzq" id="fpc-bI-Agt"/>
-                <outlet property="snitchCatchT1" destination="HRP-ys-22N" id="aKW-O4-dUu"/>
-                <outlet property="snitchCatchT1OT" destination="R4G-3O-2l2" id="VSi-rt-tvW"/>
-                <outlet property="snitchCatchT1SD" destination="g3I-tp-PsO" id="pYD-yJ-Hwt"/>
-                <outlet property="snitchCatchT2" destination="qou-Ea-vQW" id="Ud2-lV-ruy"/>
-                <outlet property="snitchCatchT2OT" destination="dOd-mT-26l" id="jtL-ks-9rN"/>
-                <outlet property="snitchCatchT2SD" destination="6at-v3-tJb" id="gtz-lw-79O"/>
-                <outlet property="startGame" destination="5mh-UF-cGl" id="lTN-Eu-hQ7"/>
-                <outlet property="startGameOT" destination="cng-dT-T8u" id="W1S-IU-7sC"/>
-                <outlet property="startGameSD" destination="wWG-Wy-ADh" id="Anc-wo-0qI"/>
-                <outlet property="stopPlay" destination="PSx-ge-yvN" id="3lT-Mj-god"/>
-                <outlet property="stopPlayOT" destination="bYC-31-efv" id="HoA-oC-m97"/>
-                <outlet property="stopPlaySD" destination="PzF-gR-JV2" id="53A-gQ-Re9"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -797,7 +773,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Injury or Penalty" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="MQ8-qG-FO4">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
+                            <font key="font" metaFont="system"/>
                             <menu key="menu" title="Injury or Penalty" id="K0W-NW-soM">
                                 <items>
                                     <menuItem title="Injury or Penalty" hidden="YES" enabled="NO" id="ZyA-In-oPn">
@@ -827,7 +803,12 @@
                         <rect key="frame" x="234" y="401" width="147" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="##" drawsBackground="YES" id="Iq9-wU-pO5">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="Dsr-Y6-iA9"/>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="0" maximumFractionDigits="3" id="Dsr-Y6-iA9">
+                                <real key="roundingIncrement" value="0.0"/>
+                                <metadata>
+                                    <bool key="localizesFormat" value="YES"/>
+                                </metadata>
+                            </numberFormatter>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

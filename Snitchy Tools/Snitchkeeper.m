@@ -21,146 +21,132 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 // This IBAction method receives user input and updates scores
 
--(IBAction)teamOneAddGoal:(id)sender {
-    t1ScoreCurrent = t1ScoreCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoAddGoal:(id)sender {
-    t2ScoreCurrent = t2ScoreCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneAddGoalOT:(id)sender {
-    t1ScoreOTCurrent = t1ScoreOTCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoAddGoalOT:(id)sender {
-    t2ScoreOTCurrent = t2ScoreOTCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneAddGoalSD:(id)sender {
-    t1ScoreSDCurrent = t1ScoreSDCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoAddGoalSD:(id)sender {
-    t2ScoreSDCurrent = t2ScoreSDCurrent + 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneRemoveGoal:(id)sender {
-    t1ScoreCurrent = t1ScoreCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoRemoveGoal:(id)sender {
-    t2ScoreCurrent = t2ScoreCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneRemoveGoalOT:(id)sender {
-    t1ScoreOTCurrent = t1ScoreOTCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoRemoveGoalOT:(id)sender {
-    t2ScoreOTCurrent = t2ScoreOTCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneRemoveGoalSD:(id)sender {
-    t1ScoreSDCurrent = t1ScoreSDCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoRemoveGoalSD:(id)sender {
-    t2ScoreSDCurrent = t2ScoreSDCurrent - 10;
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneCaughtSnitch:(id)sender {
-    if (snitchCatchT1.state == NSOnState && !snitchCaught) {
-        t1ScoreCurrent = t1ScoreCurrent + 30;
-        [snitchCatchT2 setEnabled:NO];
-        snitchCaught = TRUE;
+- (IBAction)scoreManager:(id)sender {
+    if ([gameState isEqual: @"regTime"]) {
+        if (addGoalT1.state == NSOnState) {
+            t1ScoreCurrent = t1ScoreCurrent + 10;
+            addGoalT1.state = NSOffState;
+        }
+        else if (addGoalT2.state == NSOnState) {
+            t2ScoreCurrent = t2ScoreCurrent + 10;
+            addGoalT2.state = NSOffState;
+        }
+        else if (remGoalT1.state == NSOnState) {
+            if (t1ScoreCurrent > 1) {
+                t1ScoreCurrent = t1ScoreCurrent - 10;
+            }
+            remGoalT1.state = NSOffState;
+        }
+        else if (remGoalT2.state == NSOnState) {
+            if (t2ScoreCurrent > 1) {
+                t2ScoreCurrent = t2ScoreCurrent - 10;
+            }
+            remGoalT2.state = NSOffState;
+        }
+        else if (snitchCatchT1.state == NSOnState && !snitchCaught) {
+            t1ScoreCurrent = t1ScoreCurrent + 30;
+            [snitchCatchT2 setEnabled:NO];
+            snitchCaught = TRUE;
+        }
+        else if (snitchCatchT2.state == NSOnState && !snitchCaught) {
+            t2ScoreCurrent = t2ScoreCurrent + 30;
+            [snitchCatchT1 setEnabled:NO];
+            snitchCaught = TRUE;
+        }
+        else if (snitchCatchT1.state == NSOffState && snitchCaught && t1ScoreCurrent > 1) {
+            t1ScoreCurrent = t1ScoreCurrent - 30;
+            [snitchCatchT2 setEnabled:YES];
+            snitchCaught = FALSE;
+        }
+        else if (snitchCatchT2.state == NSOffState && snitchCaught && t2ScoreCurrent > 1) {
+            t2ScoreCurrent = t2ScoreCurrent - 30;
+            [snitchCatchT1 setEnabled:YES];
+            snitchCaught = FALSE;
+        }
     }
-    else if (snitchCatchT1.state == NSOffState && snitchCaught && t1ScoreCurrent > 1) {
-        t1ScoreCurrent = t1ScoreCurrent - 30;
-        [snitchCatchT2 setEnabled:YES];
-        snitchCaught = FALSE;
+    else if ([gameState isEqual: @"oTime"]) {
+        if (addGoalT1OT.state == NSOnState) {
+            t1ScoreOTCurrent = t1ScoreOTCurrent + 10;
+            addGoalT1OT.state = NSOffState;
+        }
+        else if (addGoalT2OT.state == NSOnState) {
+            t2ScoreOTCurrent = t2ScoreOTCurrent + 10;
+            addGoalT2OT.state = NSOffState;
+        }
+        else if (remGoalT1OT.state == NSOnState) {
+            if (t1ScoreOTCurrent > 1) {
+                t1ScoreOTCurrent = t1ScoreOTCurrent - 10;
+            }
+            remGoalT1OT.state = NSOffState;
+        }
+        else if (remGoalT2OT.state == NSOnState) {
+            if (t2ScoreOTCurrent > 1) {
+                t2ScoreOTCurrent = t2ScoreOTCurrent - 10;
+            }
+            remGoalT2OT.state = NSOffState;
+        }
+        else if (snitchCatchT1OT.state == NSOnState && !snitchCaughtOT) {
+            t1ScoreOTCurrent = t1ScoreOTCurrent + 30;
+            [snitchCatchT2OT setEnabled:NO];
+            snitchCaughtOT = TRUE;
+        }
+        else if (snitchCatchT2OT.state == NSOnState && !snitchCaughtOT) {
+            t2ScoreOTCurrent = t2ScoreOTCurrent + 30;
+            [snitchCatchT1OT setEnabled:NO];
+            snitchCaughtOT = TRUE;
+        }
+        else if (snitchCatchT1OT.state == NSOffState && snitchCaughtOT && t1ScoreOTCurrent > 1) {
+            t1ScoreOTCurrent = t1ScoreOTCurrent - 30;
+            [snitchCatchT2OT setEnabled:YES];
+            snitchCaughtOT = FALSE;
+        }
+        else if (snitchCatchT2OT.state == NSOffState && snitchCaughtOT && t2ScoreOTCurrent > 1) {
+            t2ScoreCurrent = t2ScoreCurrent - 30;
+            [snitchCatchT1OT setEnabled:YES];
+            snitchCaughtOT = FALSE;
+        }
     }
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoCaughtSnitch:(id)sender {
-    if (snitchCatchT2.state == NSOnState && !snitchCaught) {
-        t2ScoreCurrent = t2ScoreCurrent + 30;
-        [snitchCatchT1 setEnabled:NO];
-        snitchCaught = TRUE;
-    }
-    else if (snitchCatchT2.state == NSOffState && snitchCaught && t2ScoreCurrent > 1) {
-        t2ScoreCurrent = t2ScoreCurrent - 30;
-        [snitchCatchT1 setEnabled:YES];
-        snitchCaught = FALSE;
-    }
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneCaughtSnitchOT:(id)sender {
-    if (snitchCatchT1OT.state == NSOnState && !snitchCaughtOT) {
-        t1ScoreOTCurrent = t1ScoreOTCurrent + 30;
-        [snitchCatchT2OT setEnabled:NO];
-        snitchCaughtOT = TRUE;
-    }
-    else if (snitchCatchT1OT.state == NSOffState && snitchCaughtOT && t1ScoreOTCurrent > 1) {
-        t1ScoreOTCurrent = t1ScoreOTCurrent - 30;
-        [snitchCatchT2OT setEnabled:YES];
-        snitchCaughtOT = FALSE;
-    }
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoCaughtSnitchOT:(id)sender {
-    if (snitchCatchT1OT.state == NSOnState && !snitchCaughtOT) {
-        t2ScoreOTCurrent = t2ScoreOTCurrent + 30;
-        [snitchCatchT1OT setEnabled:NO];
-        snitchCaughtOT = TRUE;
-    }
-    else if (snitchCatchT2OT.state == NSOffState && snitchCaughtOT && t2ScoreOTCurrent > 1) {
-        t2ScoreOTCurrent = t2ScoreOTCurrent - 30;
-        [snitchCatchT1OT setEnabled:YES];
-        snitchCaughtOT = FALSE;
-    }
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamOneCaughtSnitchSD:(id)sender {
-    if (snitchCatchT1SD.state == NSOnState && !snitchCaughtSD) {
-        t1ScoreSDCurrent = t1ScoreSDCurrent + 30;
-        [snitchCatchT2SD setEnabled:NO];
-        snitchCaughtSD = TRUE;
-    }
-    else if (snitchCatchT1SD.state == NSOffState && snitchCaughtSD && t1ScoreSDCurrent > 1) {
-        t1ScoreSDCurrent = t1ScoreSDCurrent - 30;
-        [snitchCatchT2SD setEnabled:YES];
-        snitchCaughtSD = FALSE;
-    }
-    [self scoreFieldsUpdate];
-    [self updateWindowScore];
-}
--(IBAction)teamTwoCaughtSnitchSD:(id)sender {
-    if (snitchCatchT1SD.state == NSOnState && !snitchCaughtSD) {
-        t2ScoreSDCurrent = t2ScoreSDCurrent + 30;
-        [snitchCatchT1SD setEnabled:NO];
-        snitchCaughtSD = TRUE;
-    }
-    else if (snitchCatchT2SD.state == NSOffState && snitchCaughtSD && t2ScoreSDCurrent > 1) {
-        t2ScoreSDCurrent = t2ScoreSDCurrent - 30;
-        [snitchCatchT1SD setEnabled:YES];
-        snitchCaughtSD = FALSE;
+    else if ([gameState isEqual: @"sdTime"]) {
+        if (addGoalT1SD.state == NSOnState) {
+            t1ScoreSDCurrent = t1ScoreSDCurrent + 10;
+            addGoalT1SD.state = NSOffState;
+        }
+        else if (addGoalT2SD.state == NSOnState) {
+            t2ScoreSDCurrent = t2ScoreSDCurrent + 10;
+            addGoalT2SD.state = NSOffState;
+        }
+        else if (remGoalT1SD.state == NSOnState) {
+            if (t1ScoreSDCurrent > 1) {
+                t1ScoreSDCurrent = t1ScoreSDCurrent - 10;
+            }
+            remGoalT1SD.state = NSOffState;
+        }
+        else if (remGoalT2SD.state == NSOnState) {
+            if (t2ScoreSDCurrent > 1) {
+                t2ScoreSDCurrent = t2ScoreSDCurrent - 10;
+            }
+            remGoalT2SD.state = NSOffState;
+        }
+        else if (snitchCatchT1SD.state == NSOnState && !snitchCaughtSD) {
+            t1ScoreSDCurrent = t1ScoreSDCurrent + 30;
+            [snitchCatchT2SD setEnabled:NO];
+            snitchCaughtSD = TRUE;
+        }
+        else if (snitchCatchT2SD.state == NSOnState && !snitchCaughtSD) {
+            t2ScoreSDCurrent = t2ScoreSDCurrent + 30;
+            [snitchCatchT1SD setEnabled:NO];
+            snitchCaughtSD = TRUE;
+        }
+        else if (snitchCatchT1SD.state == NSOffState && snitchCaughtSD && t1ScoreSDCurrent > 1) {
+            t1ScoreSDCurrent = t1ScoreSDCurrent - 30;
+            [snitchCatchT2SD setEnabled:YES];
+            snitchCaughtSD = FALSE;
+        }
+        else if (snitchCatchT2SD.state == NSOffState && snitchCaughtSD && t2ScoreSDCurrent > 1) {
+            t2ScoreSDCurrent = t2ScoreSDCurrent - 30;
+            [snitchCatchT1SD setEnabled:YES];
+            snitchCaughtSD = FALSE;
+        }
     }
     [self scoreFieldsUpdate];
     [self updateWindowScore];
@@ -365,7 +351,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [self otSeekerClockPause];
 }
 
-// These five methods update the textfields for the various timers.
+// These five methods provide an interface for the timers and their associated NSTextFields
 
 - (void)updateTimerRegTime:(NSTimer *)playClockTimer {
     NSDate *currentDate = [NSDate date];
