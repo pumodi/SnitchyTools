@@ -11,6 +11,7 @@
 @interface Snitchkeeper : NSObject <NSApplicationDelegate> {
     IBOutlet NSWindow *snitchKeeper;
     IBOutlet NSWindow *spectator;
+    IBOutlet NSWindow *gameOutputLogWindow;
     IBOutlet NSPanel *penaltyWindow;
     IBOutlet NSButton *addGoalT1;
     IBOutlet NSButton *addGoalT1OT;
@@ -72,6 +73,13 @@
     IBOutlet NSTextField *teamOneTextField;
     IBOutlet NSTextField *teamTwoTextField;
     IBOutlet NSTextField *clockWinSeekerFloorTitle;
+    IBOutlet NSTextField *spectatorSnitchCatchT1;
+    IBOutlet NSTextField *spectatorSnitchCatchT1OT;
+    IBOutlet NSTextField *spectatorSnitchCatchT1SD;
+    IBOutlet NSTextField *spectatorSnitchCatchT2;
+    IBOutlet NSTextField *spectatorSnitchCatchT2OT;
+    IBOutlet NSTextField *spectatorSnitchCatchT2SD;
+    IBOutlet NSTextView *gameLogOutput;
     NSTimer *playClockTimer;
     NSTimer *seekerFloorTimer;
     NSTimer *otClockTimer;
@@ -85,12 +93,12 @@
     NSPopUpButton *_ipSelector;
     NSTextField *_ipPlayerName;
     NSTextField *_ipPlayerNumber;
-    NSSegmentedControl *_ipTeamSelector;
     NSTextField *_ipEventDescription;
     NSTextField *_ipPenaltyLength;
-    NSSegmentedControl *_ipCardValue;
-    NSButton *_ipSubmitAtTime;
     NSTextField *_ipClockTime;
+    NSSegmentedControl *_ipCardValue;
+    NSSegmentedControl *_ipTeamSelector;
+    NSButton *_ipSubmitAtTime;
     
 }
 
@@ -104,4 +112,5 @@
 @property (strong) IBOutlet NSSegmentedControl *ipCardValue;
 @property (strong) IBOutlet NSButton *ipSubmitAtTime;
 @property (strong) IBOutlet NSTextField *ipClockTime;
+@property (strong) IBOutlet NSMutableArray *gameEventsLog;
 @end

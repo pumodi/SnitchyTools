@@ -12,6 +12,7 @@
     IBOutlet NSButton *buttonSnitchkeeper;
     IBOutlet NSWindow *snitchKeeper;
     IBOutlet NSWindow *mainMenu;
+    IBOutlet NSWindow *gameOutputWindow;
 }
 
 @property (assign) IBOutlet NSWindow *window;

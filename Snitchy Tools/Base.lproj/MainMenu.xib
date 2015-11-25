@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1090" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="419" customClass="NSFontManager"/>
         <customObject id="1hz-7s-aFd" customClass="MainMenu">
             <connections>
                 <outlet property="buttonSnitchkeeper" destination="7UL-pW-gWW" id="vJ9-ny-CDG"/>
+                <outlet property="gameOutputWindow" destination="i8m-Tv-DLq" id="3Ny-nh-I1T"/>
                 <outlet property="mainMenu" destination="rfc-PA-t3b" id="Yh5-Lt-Mlz"/>
                 <outlet property="snitchKeeper" destination="TAN-M7-QIC" id="nuM-04-30p"/>
                 <outlet property="window" destination="rfc-PA-t3b" id="1mQ-gV-dxU"/>
@@ -25,24 +26,36 @@
                 <outlet property="addGoalT2" destination="sal-2y-MQm" id="MQO-2H-1I4"/>
                 <outlet property="addGoalT2OT" destination="zMv-pv-67j" id="zLV-LB-H1Q"/>
                 <outlet property="addGoalT2SD" destination="5c9-Ba-q2r" id="QdA-Ub-oCo"/>
-                <outlet property="clockWinOverTimeIndic" destination="QZE-gN-D4A" id="BJT-Ev-ccj"/>
-                <outlet property="clockWinPlayClock" destination="Xct-Lt-k8P" id="0ec-FR-yua"/>
-                <outlet property="clockWinRegTimeIndic" destination="S8O-0Y-fP4" id="lzO-Vn-GIe"/>
-                <outlet property="clockWinSDTimeIndic" destination="YRf-zo-SLC" id="3km-cI-t64"/>
-                <outlet property="clockWinSeekerFloor" destination="wkl-hJ-Wsm" id="JB3-Yt-A1j"/>
-                <outlet property="clockWinSeekerFloorTitle" destination="NFW-3l-QeG" id="qId-RD-Cdk"/>
-                <outlet property="clockWinT1" destination="Pnq-kl-Nqr" id="DQl-pr-KH6"/>
-                <outlet property="clockWinT1Score" destination="nL1-bI-uCR" id="XKe-Vl-lAj"/>
-                <outlet property="clockWinT2" destination="3cE-eS-wpg" id="Yor-Sr-drW"/>
-                <outlet property="clockWinT2Score" destination="VU3-Ud-Muj" id="m10-Tp-r4B"/>
+                <outlet property="clockWinOverTimeIndic" destination="fld-mf-jhT" id="brF-90-jOt"/>
+                <outlet property="clockWinPlayClock" destination="iDK-86-LzN" id="iNb-eg-vQ3"/>
+                <outlet property="clockWinRegTimeIndic" destination="71Y-s7-hlr" id="a6Q-QS-fUh"/>
+                <outlet property="clockWinSDTimeIndic" destination="8Y7-pF-clI" id="mMt-aE-gP2"/>
+                <outlet property="clockWinSeekerFloor" destination="rtr-Pt-NUQ" id="UU7-eF-ltM"/>
+                <outlet property="clockWinSeekerFloorTitle" destination="TsT-fM-0Vx" id="zNf-Kf-nWN"/>
+                <outlet property="clockWinT1" destination="j11-Pc-7j9" id="fjf-Fk-qDq"/>
+                <outlet property="clockWinT1Score" destination="a3a-vl-0YH" id="nt7-JE-zyc"/>
+                <outlet property="clockWinT2" destination="vWK-DX-72D" id="z3k-oc-F7s"/>
+                <outlet property="clockWinT2Score" destination="H14-rN-6qa" id="z03-8K-l3o"/>
                 <outlet property="commitGame" destination="mHo-JE-evA" id="2Vo-QM-Tue"/>
                 <outlet property="endGame" destination="LH5-ed-rla" id="p1W-PH-W4J"/>
                 <outlet property="endGameOT" destination="PqD-Wk-G4l" id="xX2-lD-DOq"/>
                 <outlet property="endGameSD" destination="ocf-mG-AeH" id="sC2-aI-aJ8"/>
+                <outlet property="gameLogOutput" destination="Owi-EV-SNV" id="zhj-c8-MFH"/>
+                <outlet property="gameOutputLogWindow" destination="i8m-Tv-DLq" id="JhD-yk-7Iz"/>
                 <outlet property="help" destination="bRo-fq-WK6" id="QCs-wf-yVO"/>
+                <outlet property="ipCardValue" destination="dV5-dp-trI" id="XyG-1u-ws2"/>
+                <outlet property="ipClockTime" destination="RS5-jb-Kjj" id="6bm-ND-hSh"/>
+                <outlet property="ipEventDescription" destination="Eyh-lb-92B" id="M4g-Xb-t6q"/>
+                <outlet property="ipPenaltyLength" destination="61F-Z4-yHz" id="IuN-lB-Pkq"/>
+                <outlet property="ipPlayerName" destination="MFG-1b-oPT" id="eYg-ZK-WNT"/>
+                <outlet property="ipPlayerNumber" destination="Ztk-Pg-pEB" id="laL-8b-z09"/>
+                <outlet property="ipSelector" destination="wjz-7M-if0" id="kQ0-0b-4zc"/>
+                <outlet property="ipSubmitAtTime" destination="G63-6D-oLR" id="UB7-9V-d38"/>
+                <outlet property="ipTeamSelector" destination="Of8-zi-CqQ" id="eZq-7I-PXX"/>
                 <outlet property="otClock" destination="6FB-vQ-wiL" id="qtM-fJ-NXn"/>
                 <outlet property="otSeekerFloor" destination="S37-an-h10" id="eg5-kG-bXE"/>
                 <outlet property="penalty" destination="yjz-Q1-Y6J" id="xF4-BQ-aRj"/>
+                <outlet property="penaltyWindow" destination="sjh-aK-Kc2" id="0Y1-6u-p8z"/>
                 <outlet property="playClock" destination="YgN-RP-70F" id="3jl-sV-lJf"/>
                 <outlet property="remGoalT1" destination="edK-4o-vZe" id="40q-nc-RuI"/>
                 <outlet property="remGoalT1OT" destination="ZJp-Me-h60" id="QGE-u3-2Ct"/>
@@ -61,7 +74,13 @@
                 <outlet property="snitchCatchT2SD" destination="vyn-Nq-pCu" id="exr-Ng-Zfq"/>
                 <outlet property="snitchKeeper" destination="TAN-M7-QIC" id="fNa-MQ-FYT"/>
                 <outlet property="snitchPitch" destination="JoC-OD-qLc" id="oe1-2Y-N4y"/>
-                <outlet property="spectator" destination="HOv-TF-4Jj" id="jsy-pI-C1x"/>
+                <outlet property="spectator" destination="Bh5-Ej-aVE" id="Yc7-k5-nwU"/>
+                <outlet property="spectatorSnitchCatchT1" destination="Pbe-gS-JXu" id="mX3-3x-Yn6"/>
+                <outlet property="spectatorSnitchCatchT1OT" destination="UQf-aB-5so" id="2gK-mK-rCA"/>
+                <outlet property="spectatorSnitchCatchT1SD" destination="qss-uk-kQF" id="0ng-bv-Qg8"/>
+                <outlet property="spectatorSnitchCatchT2" destination="j0a-KA-8UJ" id="NoL-7b-N2s"/>
+                <outlet property="spectatorSnitchCatchT2OT" destination="qJ1-lg-WxC" id="ZQ5-IQ-0rA"/>
+                <outlet property="spectatorSnitchCatchT2SD" destination="yIk-SU-8Dp" id="wmg-EZ-Q3Q"/>
                 <outlet property="startGame" destination="9gs-2S-86I" id="zCa-BN-XJU"/>
                 <outlet property="startGameOT" destination="U25-xa-re8" id="TSR-NY-GDu"/>
                 <outlet property="startGameSD" destination="UfJ-rU-ogA" id="8Vc-fb-rnV"/>
@@ -69,11 +88,11 @@
                 <outlet property="stopPlayOT" destination="IO8-HJ-1sf" id="tpG-iK-v1H"/>
                 <outlet property="stopPlaySD" destination="I6k-3e-xY8" id="0q3-HS-FEY"/>
                 <outlet property="stopPlaySeekerContinue" destination="w4F-Cq-Gj5" id="JHG-aL-BIQ"/>
-                <outlet property="t1Name" destination="Pnq-kl-Nqr" id="K0m-m9-l0p"/>
+                <outlet property="t1Name" destination="Vhr-nM-Jmn" id="PWY-Px-Exp"/>
                 <outlet property="t1OTScore" destination="wg5-rH-ECQ" id="icm-vW-WgE"/>
                 <outlet property="t1SDScore" destination="YAK-5n-bIH" id="LaF-O6-yhy"/>
                 <outlet property="t1Score" destination="odK-9T-Qht" id="mh2-4c-kG2"/>
-                <outlet property="t2Name" destination="3cE-eS-wpg" id="OuP-7A-pql"/>
+                <outlet property="t2Name" destination="Mo7-Xo-5rk" id="epB-Od-lzO"/>
                 <outlet property="t2OTScore" destination="Fs7-BM-zSq" id="jEX-pj-qys"/>
                 <outlet property="t2SDScore" destination="pug-FI-tg2" id="iOD-Aq-bO5"/>
                 <outlet property="t2Score" destination="LST-VW-L5t" id="eeW-hv-RFW"/>
@@ -138,7 +157,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="81">
                         <items>
-                            <menuItem title="New Tournament" keyEquivalent="n" id="82">
+                            <menuItem title="New Tournament" enabled="NO" keyEquivalent="n" id="82">
                                 <connections>
                                     <action selector="newDocument:" target="-1" id="371"/>
                                 </connections>
@@ -348,7 +367,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Main Menu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="rfc-PA-t3b">
+        <window title="Main Menu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="rfc-PA-t3b" userLabel="Main Menu">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="407" height="257"/>
@@ -482,7 +501,7 @@
                 </subviews>
             </view>
         </window>
-        <window title="Bracket" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="9uF-4p-dRK">
+        <window title="Bracket" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="9uF-4p-dRK" userLabel="Bracket">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="1017" height="654"/>
@@ -535,12 +554,7 @@
                         <rect key="frame" x="20" y="586" width="112" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ehc-GD-EKb">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="0" maximumFractionDigits="3" id="Iqb-7y-xeE">
-                                <real key="roundingIncrement" value="0.0"/>
-                                <metadata>
-                                    <bool key="localizesFormat" value="YES"/>
-                                </metadata>
-                            </numberFormatter>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="Iqb-7y-xeE"/>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -579,7 +593,7 @@
                 </subviews>
             </view>
         </window>
-        <window title="Staff" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="I86-mc-Rjy">
+        <window title="Staff" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="I86-mc-Rjy" userLabel="Staff">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="618" height="512"/>
@@ -641,7 +655,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView horizontalHuggingPriority="501" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" headerView="fvB-aK-MEy" id="swl-bt-yWG">
-                                    <rect key="frame" x="0.0" y="0.0" width="576" height="399"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="576" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="16" height="3"/>
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -719,11 +733,9 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="FHw-cj-dZA">
-                            <rect key="frame" x="-7" y="2" width="0.0" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="GV2-Ew-uYw">
-                            <rect key="frame" x="-14" y="9" width="15" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="fvB-aK-MEy">
@@ -905,7 +917,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="buttonStateManager:" target="M2R-xQ-C98" id="pXZ-go-lf1"/>
+                            <action selector="makeKeyAndOrderFront:" target="sjh-aK-Kc2" id="a3C-Me-eXL"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="EF8-D1-EOq">
@@ -1229,7 +1241,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Snitch Catch" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Y4c-LE-VM3">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" size="13" name="LucidaGrande"/>
+                            <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="scoreManager:" target="M2R-xQ-C98" id="vV7-4V-UVs"/>
@@ -1293,15 +1305,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Hnf-32-cck">
-                        <rect key="frame" x="206" y="838" width="109" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Play Clock" id="bDZ-Bo-7Qw">
-                            <font key="font" metaFont="system" size="10"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="jxo-AR-UPI">
                         <rect key="frame" x="222" y="807" width="76" height="11"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1356,10 +1359,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" title="Open Spectator" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PVK-W2-aHy">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="11" name="LucidaGrande"/>
+                            <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
                         <connections>
-                            <action selector="makeKeyAndOrderFront:" target="HOv-TF-4Jj" id="ljs-LG-olP"/>
+                            <action selector="makeKeyAndOrderFront:" target="Bh5-Ej-aVE" id="CKz-QT-v2f"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" id="Mo7-Xo-5rk">
@@ -1384,7 +1387,7 @@
                         <rect key="frame" x="666" y="790" width="67" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="Dah-1j-nIb">
-                            <font key="font" metaFont="titleBar" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -1398,10 +1401,19 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Hnf-32-cck">
+                        <rect key="frame" x="206" y="838" width="109" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Play Clock" id="bDZ-Bo-7Qw">
+                            <font key="font" metaFont="system" size="10"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>
-        <window title="Snitchkeeper Help" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="JDz-O0-3u2" customClass="NSPanel">
+        <window title="Snitchkeeper Help" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="JDz-O0-3u2" userLabel="Snitchkeeper Help" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="136" y="163" width="544" height="691"/>
@@ -1451,12 +1463,13 @@
                 </subviews>
             </view>
         </window>
-        <window title="Snitchkeeper Spectator" allowsToolTipsWhenApplicationIsInactive="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="HOv-TF-4Jj" customClass="NSPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+        <userDefaultsController representsSharedInstance="YES" id="NWN-y2-WUl"/>
+        <window title="Snitchkeeper Spectator" allowsToolTipsWhenApplicationIsInactive="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Bh5-Ej-aVE" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES" HUD="YES"/>
             <rect key="contentRect" x="136" y="163" width="641" height="302"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <value key="minSize" type="size" width="641" height="302"/>
-            <view key="contentView" wantsLayer="YES" id="qFz-W4-CJp">
+            <view key="contentView" wantsLayer="YES" id="ROz-yf-i61">
                 <rect key="frame" x="0.0" y="0.0" width="641" height="302"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <userGuides>
@@ -1464,135 +1477,372 @@
                     <userLayoutGuide location="320" affinity="minX"/>
                 </userGuides>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Xct-Lt-k8P">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iDK-86-LzN">
                         <rect key="frame" x="161" y="137" width="318" height="84"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" allowsEditingTextAttributes="YES" id="wma-gA-PqH">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" allowsEditingTextAttributes="YES" id="8ho-Ar-9w4">
                             <font key="font" metaFont="system" size="70"/>
-                            <color key="textColor" red="0.0024416334313197563" green="1" blue="0.10958674663378698" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0024416334309999999" green="1" blue="0.10958674660000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wkl-hJ-Wsm">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rtr-Pt-NUQ">
                         <rect key="frame" x="218" y="43" width="203" height="53"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" allowsEditingTextAttributes="YES" id="ytM-xb-BBH">
-                            <font key="font" size="44" name="LucidaGrande"/>
-                            <color key="textColor" red="0.0024416334313197563" green="1" blue="0.10958674663378698" alpha="1" colorSpace="calibratedRGB"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" allowsEditingTextAttributes="YES" id="4o8-yK-Nfu">
+                            <font key="font" metaFont="system" size="44"/>
+                            <color key="textColor" red="0.0024416334309999999" green="1" blue="0.10958674660000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="N0P-mu-2e4">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QXB-dP-OcT">
                         <rect key="frame" x="229" y="241" width="180" height="42"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Play Clock" allowsEditingTextAttributes="YES" id="W3x-cY-vKm">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Play Clock" allowsEditingTextAttributes="YES" id="xv9-Zf-58q">
                             <font key="font" metaFont="system" size="35"/>
-                            <color key="textColor" red="1" green="0.85277869953193064" blue="0.72216756387754089" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="NFW-3l-QeG">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TsT-fM-0Vx">
                         <rect key="frame" x="240" y="93" width="158" height="30"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Seeker Floor" allowsEditingTextAttributes="YES" id="KnV-Vu-IHl">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Seeker Floor" allowsEditingTextAttributes="YES" id="v7O-dc-aLi">
                             <font key="font" metaFont="system" size="25"/>
-                            <color key="textColor" red="1" green="0.85277869953193064" blue="0.72216756387754089" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3cE-eS-wpg">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vWK-DX-72D">
                         <rect key="frame" x="512" y="203" width="97" height="30"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Team 2" allowsEditingTextAttributes="YES" id="Fug-Ud-LwY">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Team 2" allowsEditingTextAttributes="YES" id="261-LB-4WQ">
                             <font key="font" metaFont="system" size="18"/>
-                            <color key="textColor" red="1" green="0.058871576398181413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="0.0588715764" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Pnq-kl-Nqr">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="j11-Pc-7j9">
                         <rect key="frame" x="33" y="203" width="97" height="30"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Team 1" allowsEditingTextAttributes="YES" id="2g5-HG-6mJ">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Team 1" allowsEditingTextAttributes="YES" id="fhA-PA-Ne8">
                             <font key="font" metaFont="system" size="18"/>
-                            <color key="textColor" red="1" green="0.058871576398181413" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="0.0588715764" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VU3-Ud-Muj">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="H14-rN-6qa">
                         <rect key="frame" x="491" y="121" width="139" height="60"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" allowsEditingTextAttributes="YES" id="R9K-fd-dJb">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" allowsEditingTextAttributes="YES" id="uaV-fW-6vh">
                             <font key="font" metaFont="system" size="50"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nL1-bI-uCR">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="a3a-vl-0YH">
                         <rect key="frame" x="19" y="121" width="124" height="60"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" allowsEditingTextAttributes="YES" id="pCI-gs-TJa">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" allowsEditingTextAttributes="YES" id="FHF-hr-Mwz">
                             <font key="font" metaFont="system" size="50"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button id="W9j-DU-0Tv">
-                        <rect key="frame" x="20" y="10" width="48" height="48"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <buttonCell key="cell" type="square" title="100" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="dFD-qq-oye">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
-                        </buttonCell>
-                    </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Jzd-1d-79B">
-                        <rect key="frame" x="60" y="96" width="43" height="17"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Snitch" id="hIM-rY-479">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" red="1" green="0.85277869953193064" blue="0.72216756387754089" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eIv-P7-8ep">
-                        <rect key="frame" x="539" y="96" width="43" height="17"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Snitch" id="4z8-YJ-sSw">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" red="1" green="0.85277869953193064" blue="0.72216756387754089" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="S8O-0Y-fP4">
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="71Y-s7-hlr">
                         <rect key="frame" x="243" y="216" width="34" height="17"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="ST" drawsBackground="YES" id="ABT-Id-X5g">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="ST" drawsBackground="YES" id="FEL-AO-pD7">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" red="0.0024416334309999999" green="1" blue="0.10958674660000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textFieldCell>
                     </textField>
-                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QZE-gN-D4A">
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fld-mf-jhT">
                         <rect key="frame" x="302" y="216" width="34" height="17"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="OT" drawsBackground="YES" id="DkR-LZ-Fbh">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="OT" drawsBackground="YES" id="P2c-Dp-Dxc">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" red="0.0024416334309999999" green="1" blue="0.10958674660000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textFieldCell>
                     </textField>
-                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YRf-zo-SLC">
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8Y7-pF-clI">
                         <rect key="frame" x="362" y="216" width="34" height="17"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="SD" drawsBackground="YES" id="0in-Ng-KFM">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="SD" drawsBackground="YES" id="qA8-UB-pud">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" red="0.0024416334309999999" green="1" blue="0.10958674660000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Pbe-gS-JXu">
+                        <rect key="frame" x="35" y="100" width="92" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught" id="S5H-iP-4zR">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UQf-aB-5so">
+                        <rect key="frame" x="24" y="77" width="114" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught OT" id="wbS-bq-8c4">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qss-uk-kQF">
+                        <rect key="frame" x="25" y="54" width="113" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught SD" id="nrd-Om-A25">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="j0a-KA-8UJ">
+                        <rect key="frame" x="514" y="100" width="92" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught" id="WHI-Sr-Wba">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qJ1-lg-WxC">
+                        <rect key="frame" x="503" y="77" width="114" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught OT" id="DxV-07-uO3">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yIk-SU-8Dp">
+                        <rect key="frame" x="504" y="54" width="113" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Snitch Caught SD" id="RgB-fL-62C">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="1" green="0.85277869949999996" blue="0.72216756390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="156.5" y="-118"/>
         </window>
-        <userDefaultsController representsSharedInstance="YES" id="NWN-y2-WUl"/>
+        <window title="Injury/Penalty" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="sjh-aK-Kc2" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="112" width="431" height="520"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="uRu-zX-g7n">
+                <rect key="frame" x="0.0" y="0.0" width="431" height="520"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" id="wjz-7M-if0">
+                        <rect key="frame" x="136" y="471" width="159" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Injury or Penalty" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="U8T-qr-Ua8" id="WrJ-79-xNO">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" title="Injury or Penalty" id="BDJ-Mc-d0z">
+                                <items>
+                                    <menuItem title="Injury or Penalty" hidden="YES" enabled="NO" id="U8T-qr-Ua8">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="pLc-jM-1K1"/>
+                                    <menuItem title="Injury" tag="1" id="xLw-3y-LSh">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Penalty" tag="2" id="ulW-BP-Ykt">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField verticalHuggingPriority="750" id="MFG-1b-oPT">
+                        <rect key="frame" x="50" y="401" width="133" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Player Name" drawsBackground="YES" id="6kC-Ny-DS8">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="Ztk-Pg-pEB">
+                        <rect key="frame" x="234" y="401" width="147" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="##" drawsBackground="YES" id="0fD-bh-MFK">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="jDl-EG-BOD"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" id="Of8-zi-CqQ">
+                        <rect key="frame" x="48" y="360" width="335" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="e7i-bv-iVd">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Team 1" width="164"/>
+                                <segment label="Team 2" width="164" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Scj-sI-5im">
+                        <rect key="frame" x="149" y="438" width="132" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Player Information" placeholderString="" id="QUi-mZ-oS7">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Eyh-lb-92B">
+                        <rect key="frame" x="50" y="150" width="331" height="204"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Please describe the event" drawsBackground="YES" id="qWA-Ti-L1C">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="61F-Z4-yHz">
+                        <rect key="frame" x="139" y="123" width="153" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Length of Penalty" drawsBackground="YES" id="IX0-Sb-UM5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" id="dV5-dp-trI">
+                        <rect key="frame" x="18" y="92" width="395" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="wAG-dq-fN4">
+                            <font key="font" metaFont="smallSystem"/>
+                            <segments>
+                                <segment label="Not Carded" width="96"/>
+                                <segment label="Yellow Card" width="96" tag="1"/>
+                                <segment label="Red Card"/>
+                                <segment label="Double Yellow Card"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <button verticalHuggingPriority="750" id="G63-6D-oLR">
+                        <rect key="frame" x="121" y="33" width="188" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Submit at Current Time" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A7b-HM-0yf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="updateIP:" target="M2R-xQ-C98" id="uBJ-Ge-VJY"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vCA-JI-Me5">
+                        <rect key="frame" x="18" y="7" width="486" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="*Make sure that the clock is not running when you submit a Injury or Penalty" id="klN-yW-k9y">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RS5-jb-Kjj">
+                        <rect key="frame" x="137" y="69" width="157" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="00:00.00" id="nqe-25-p4M">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="-498.5" y="50"/>
+        </window>
+        <window title="Game Log" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="i8m-Tv-DLq">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="207" width="747" height="627"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="LhG-Oz-ZHC">
+                <rect key="frame" x="0.0" y="-2" width="747" height="627"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="jNv-ik-nFP">
+                        <rect key="frame" x="18" y="590" width="424" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="During Alpha testing please copy and paste this log into a text file." id="U8n-vj-Vye">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="zNz-gX-scl">
+                        <rect key="frame" x="657" y="13" width="70" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Print" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EDD-Nk-TNN">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" id="D4t-ic-qxJ">
+                        <rect key="frame" x="543" y="13" width="114" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Save to CSV" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PEF-7U-6e3">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" id="Mj2-RU-osi">
+                        <rect key="frame" x="338" y="13" width="205" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Save game to Tournament" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="427-yJ-E22">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="mDe-nJ-clo">
+                        <rect key="frame" x="20" y="61" width="707" height="521"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="h8U-vA-P6e">
+                            <rect key="frame" x="1" y="1" width="223" height="133"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" id="Owi-EV-SNV">
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="690" height="519"/>
+                                    <size key="maxSize" width="690" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="690" height="519"/>
+                                    <size key="maxSize" width="690" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="f7b-Wd-fNr">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="E7Z-Wa-UU6">
+                            <rect key="frame" x="224" y="1" width="15" height="133"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="-344.5" y="66.5"/>
+        </window>
     </objects>
     <resources>
         <image name="lock" width="32" height="32"/>

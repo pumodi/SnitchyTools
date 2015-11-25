@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>35F034AA-DF90-4ABD-B0D2-B49EA00FCB2C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Snitchy Tools</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0F0B2216E898DC3D50FCBB86A463F0B6FD2F8D2A</key>
+		<string>https://github.com/pumodi/SnitchyTools.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Snitchy Tools.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0F0B2216E898DC3D50FCBB86A463F0B6FD2F8D2A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pumodi/SnitchyTools.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0F0B2216E898DC3D50FCBB86A463F0B6FD2F8D2A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0F0B2216E898DC3D50FCBB86A463F0B6FD2F8D2A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SnitchyTools</string>
+		</dict>
+	</array>
+</dict>
+</plist>
