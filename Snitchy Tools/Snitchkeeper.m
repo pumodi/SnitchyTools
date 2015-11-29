@@ -667,6 +667,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [addGoalT2 setEnabled:YES];
     [remGoalT2 setEnabled:YES];
     [remGoalT1 setEnabled:YES];
+    [commitGame setEnabled:NO];
     [snitchCatchT1 setEnabled:YES];
     [snitchCatchT2 setEnabled:YES];
     [penalty setEnabled:YES];
@@ -741,21 +742,35 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 
 - (void)onEndGamePressed {
     // Stops clock, enables OT buttons
-    [startGame setEnabled:YES];
-    [stopPlay setEnabled:NO];
-    [stopPlaySeekerContinue setEnabled:NO];
-    [snitchPitch setEnabled:NO];
-    [endGame setEnabled:NO];
-    [startGameOT setEnabled:YES];
-    [clockWinRegTimeIndic setHidden:YES];
-    [commitGame setEnabled:YES];
-    [self sdDisabled];
-    [self seekerClockPause];
-    [self playClockPause];
-    seekerRunning = FALSE;
-    NSString *stoppageTime = [playClock stringValue];
-    NSString *stoppageNotice = [NSString stringWithFormat:@"%@ - Regulation Time has ended.", stoppageTime];
-    [_gameEventsLog addObject:stoppageNotice];
+    if (t1ScoreCurrent == 0 && t2ScoreCurrent ==0) {
+        NSAlert *zeroScoreError = [[NSAlert alloc] init];
+        zeroScoreError = [NSAlert alertWithMessageText:@"Regulation Time cannot end with a zero score." defaultButton:@"Ok" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Game Timer has been stopped."];
+        [zeroScoreError runModal];
+        [self onStopPressed];
+    }
+    else if (snitchCaught == FALSE) {
+        NSAlert *zeroScoreError = [[NSAlert alloc] init];
+        zeroScoreError = [NSAlert alertWithMessageText:@"Regulation Time cannot end with out a snitch catch." defaultButton:@"Ok" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Game Timer has been stopped."];
+        [zeroScoreError runModal];
+        [self onStopPressed];
+    }
+    else {
+        [startGame setEnabled:YES];
+        [stopPlay setEnabled:NO];
+        [stopPlaySeekerContinue setEnabled:NO];
+        [snitchPitch setEnabled:NO];
+        [endGame setEnabled:NO];
+        [startGameOT setEnabled:YES];
+        [clockWinRegTimeIndic setHidden:YES];
+        [commitGame setEnabled:YES];
+        [self sdDisabled];
+        [self seekerClockPause];
+        [self playClockPause];
+        seekerRunning = FALSE;
+        NSString *stoppageTime = [playClock stringValue];
+        NSString *stoppageNotice = [NSString stringWithFormat:@"%@ - Regulation Time has ended.", stoppageTime];
+        [_gameEventsLog addObject:stoppageNotice];
+    }
 }
 
 //// OT
@@ -769,6 +784,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [addGoalT2OT setEnabled:YES];
     [remGoalT2OT setEnabled:YES];
     [remGoalT1OT setEnabled:YES];
+    [commitGame setEnabled:NO];
     [snitchCatchT1OT setEnabled:YES];
     [snitchCatchT2OT setEnabled:YES];
     if (!otClockHasRun) {
@@ -838,6 +854,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
     [endGameSD setEnabled:YES];
     [addGoalT1SD setEnabled:YES];
     [addGoalT2SD setEnabled:YES];
+    [commitGame setEnabled:NO];
     [remGoalT2SD setEnabled:YES];
     [remGoalT1SD setEnabled:YES];
     [snitchCatchT1SD setEnabled:YES];
@@ -878,17 +895,25 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 }
 
 - (void)onEndGameSDPressed {
-    [startGameSD setEnabled:YES];
-    [stopPlaySD setEnabled:NO];
-    [endGameSD setEnabled:NO];
-    [commitGame setEnabled:YES];
-    [clockWinSDTimeIndic setHidden:YES];
-    [self regDisabled];
-    [self otDisabled];
-    [self sdClockPause];
-    NSString *stoppageTime = [sdClock stringValue];
-    NSString *stoppageNotice = [NSString stringWithFormat:@"%@ - Sudden Death", stoppageTime];
-    [_gameEventsLog addObject:stoppageNotice];
+    if ((t1ScoreSDCurrent == t2ScoreSDCurrent) || (t1ScoreSDCurrent == 0 && t2ScoreSDCurrent == 0)) {
+        NSAlert *zeroScoreError = [[NSAlert alloc] init];
+        zeroScoreError = [NSAlert alertWithMessageText:@"Sudden Death cannot end with a zero or tied score." defaultButton:@"Ok" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Game Timer has been stopped."];
+        [zeroScoreError runModal];
+        [self onStopPlaySDPressed];
+    }
+    else {
+        [startGameSD setEnabled:YES];
+        [stopPlaySD setEnabled:NO];
+        [endGameSD setEnabled:NO];
+        [commitGame setEnabled:YES];
+        [clockWinSDTimeIndic setHidden:YES];
+        [self regDisabled];
+        [self otDisabled];
+        [self sdClockPause];
+        NSString *stoppageTime = [sdClock stringValue];
+        NSString *stoppageNotice = [NSString stringWithFormat:@"%@ - Sudden Death", stoppageTime];
+        [_gameEventsLog addObject:stoppageNotice];
+    }
 }
 
 //// Commit
