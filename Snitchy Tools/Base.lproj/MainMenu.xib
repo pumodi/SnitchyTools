@@ -1646,19 +1646,22 @@
                     <popUpButton verticalHuggingPriority="750" id="wjz-7M-if0">
                         <rect key="frame" x="136" y="471" width="159" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Injury or Penalty" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="U8T-qr-Ua8" id="WrJ-79-xNO">
+                        <popUpButtonCell key="cell" type="push" title="Injury or Penalty" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="WrJ-79-xNO">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="Injury or Penalty" id="BDJ-Mc-d0z">
                                 <items>
                                     <menuItem title="Injury or Penalty" hidden="YES" enabled="NO" id="U8T-qr-Ua8">
+                                        <attributedString key="attributedTitle"/>
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="pLc-jM-1K1"/>
                                     <menuItem title="Injury" tag="1" id="xLw-3y-LSh">
+                                        <attributedString key="attributedTitle"/>
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                     <menuItem title="Penalty" tag="2" id="ulW-BP-Ykt">
+                                        <attributedString key="attributedTitle"/>
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
@@ -1818,14 +1821,14 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" id="Owi-EV-SNV">
-                                    <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="519"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="690" height="519"/>
-                                    <size key="maxSize" width="690" height="10000000"/>
+                                    <size key="maxSize" width="707" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <size key="minSize" width="690" height="519"/>
-                                    <size key="maxSize" width="690" height="10000000"/>
+                                    <size key="maxSize" width="707" height="10000000"/>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

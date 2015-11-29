@@ -779,8 +779,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
         [clockWinT2Score setIntegerValue:00];
         t1OTScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
         t2OTScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
-        NSString *startTime = [otClock stringValue];
-        NSString *startNotice = [NSString stringWithFormat:@"05:00.00 - Overtime has begun.", startTime];
+        NSString *startNotice = [NSString stringWithFormat:@"05:00.00 - Overtime has begun."];
         [_gameEventsLog addObject:startNotice];
     }
     else {
@@ -854,8 +853,7 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
         [clockWinT2Score setIntegerValue:00];
         t1SDScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
         t2SDScore.stringValue = [NSString stringWithFormat:(NSString *)@"00"];
-        NSString *startTime = [sdClock stringValue];
-        NSString *startNotice = [NSString stringWithFormat:@"00:00.00 - Sudden Death has begun.", startTime];
+        NSString *startNotice = [NSString stringWithFormat:@"00:00.00 - Sudden Death has begun."];
         [_gameEventsLog addObject:startNotice];
     }
     else {
@@ -896,6 +894,37 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
 //// Commit
 
 - (void)onCommitGamePressed {
+    NSString *gameEndMessage;
+    NSString *winnerMessage;
+    if ([gameState isEqual:@"regTime"]) {
+        gameEndMessage = [NSString stringWithFormat:@"The game ended in Regulation Time with a final score of %d (%@) - %d (%@)", t1ScoreCurrent, teamOneString, t2ScoreCurrent, teamTwoString];
+        if (t1ScoreCurrent > t2ScoreCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamOneString];
+        }
+        else if (t1ScoreCurrent < t2ScoreCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamTwoString];
+        }
+    }
+    else if ([gameState isEqual:@"oTime"] ) {
+        gameEndMessage = [NSString stringWithFormat:@"The game ended in Overime with a final score of %d (%@) - %d (%@)", t1ScoreOTCurrent, teamOneString, t2ScoreOTCurrent, teamTwoString];
+        if (t1ScoreOTCurrent > t2ScoreOTCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamOneString];
+        }
+        else if (t1ScoreOTCurrent < t2ScoreOTCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamTwoString];
+        }
+    }
+    else if ([gameState isEqual:@"sdTime"]) {
+        gameEndMessage = [NSString stringWithFormat:@"The game ended in Sudden Death with a final score of %d (%@) - %d (%@)", t1ScoreSDCurrent, teamOneString, t2ScoreSDCurrent, teamTwoString];
+        if (t1ScoreSDCurrent > t2ScoreSDCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamOneString];
+        }
+        else if (t1ScoreSDCurrent < t2ScoreSDCurrent) {
+            winnerMessage = [NSString stringWithFormat:@"%@ wins!", teamTwoString];
+        }
+    }
+    [_gameEventsLog addObject:gameEndMessage];
+    [_gameEventsLog addObject:winnerMessage];
     [self regDisabled];
     [self otDisabled];
     [self sdDisabled];
@@ -949,8 +978,15 @@ NSDate *stopDateRegTime, *stopDateOTTime, *stopDateSDTime, * stopDateSeekerFloor
         ipCardTypeString = [NSString stringWithFormat:@"a double yellow card"];
     }
     NSString *ipTimeOfPenaltyString = [playClock stringValue];
-    NSString *formattedPenalty = [NSString stringWithFormat:@"%@ - Player #%@ (%@), on team %@, committed/received a %@. That player received %@ and will be penalized for %@. Here is the penalty description: %@",ipTimeOfPenaltyString, ipPlayerNumberString, ipPlayerNameString, ipInfringingTeamString, ipDesignationString, ipCardTypeString,ipPenaltyLengthString,ipEventDescriptionString];
+    NSString *formattedPenalty;
+    if (_ipSelector.selectedTag == 1) {
+        formattedPenalty = [NSString stringWithFormat:@"%@ - Player #%@ (%@), on team %@, was injured. Here is the injury description: %@",ipTimeOfPenaltyString, ipPlayerNumberString, ipPlayerNameString, ipInfringingTeamString,ipEventDescriptionString];
+    }
+    else if (_ipSelector.selectedTag == 2) {
+        formattedPenalty = [NSString stringWithFormat:@"%@ - Player #%@ (%@), on team %@, committed/received a %@. That player received %@ and will be penalized for %@. Here is the penalty description: %@",ipTimeOfPenaltyString, ipPlayerNumberString, ipPlayerNameString, ipInfringingTeamString, ipDesignationString, ipCardTypeString,ipPenaltyLengthString,ipEventDescriptionString];
+    }
     [_gameEventsLog addObject:formattedPenalty];
+    [penaltyWindow performClose:penaltyWindow];
     
 }
 
